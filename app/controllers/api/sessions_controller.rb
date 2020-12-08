@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class Api::SessionsController < ApplicationController
 
     def new
         render :new
@@ -16,8 +16,10 @@ class SessionController < ApplicationController
     end
 
     def destroy
+        @user = current_user
         logout! if logged_in?
-        render "/"
+        render "api/users/show"
+        #! don't let people logout if not logged in
     end
 
 end
