@@ -17,7 +17,7 @@ class SessionController < ApplicationController
 
     def destroy
         logout! if logged_in?
-        redirect_to api_session_url #! render the home page after sign-out
+        render "/"
     end
 
 end
