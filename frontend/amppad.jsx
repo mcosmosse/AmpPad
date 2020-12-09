@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logout = logout;
    // END TESTING
    
-   ReactDOM.render(<p>it's rendered!</p>, root);
+   ReactDOM.render(<p>Welcome to the AmpPad homepage!</p>, root);
 });

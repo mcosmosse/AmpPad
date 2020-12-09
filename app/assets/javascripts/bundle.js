@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.login = _utils_session_api_util__WEBPACK_IMPORTED_MODULE_2__.login;
   window.logout = _utils_session_api_util__WEBPACK_IMPORTED_MODULE_2__.logout; // END TESTING
 
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "it's rendered!"), root);
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Welcome to the AmpPad homepage!"), root);
 });
 
 /***/ }),
