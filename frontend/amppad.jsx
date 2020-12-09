@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Root from './components/root';
-// import configureStore from './store/store';
+import configureStore from './store/store';
 
 // for tests
-import { signUp, login, logout } from './utils/session_api_util';
+import { signup, login, logout } from './utils/session_api_util';
 // end imports
 
 document.addEventListener('DOMContentLoaded', () => {
    const root = document.getElementById('root');
-//    const store = configureStore();
+   const store = configureStore();
 
    // TESTING
-    window.signUp = signUp;
+    window.signup = signup;
     window.login = login;
     window.logout = logout;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
    // END TESTING
    
    ReactDOM.render(<p>Welcome to the AmpPad homepage!</p>, root);

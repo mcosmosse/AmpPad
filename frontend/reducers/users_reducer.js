@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from "./actions/session_actions";
+import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -10,4 +10,4 @@ const usersReducer = (state = {}, action) => {
     }
 }
 
-export default usersReducer
+export default usersReducer;
