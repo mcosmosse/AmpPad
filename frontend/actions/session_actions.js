@@ -6,7 +6,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 // regular actions
 
-export const receiveCurrentUser = (currentUser) => ({
+export const receiveCurrentUser = (user) => ({
     type: RECEIVE_CURRENT_USER,
     user
 });
@@ -37,8 +37,8 @@ export const logout = () => dispatch => {
 
 export const signup = (user) => dispatch => {
     APIUtil.signup(user)
-    .then((user) => dispatch(receiveCurrentUser()),
-    errors => dispatch(receiveErrors()))
+    .then((user) => dispatch(receiveCurrentUser(user)),
+    errors => dispatch(receiveErrors(errors)))
 }
 
 // end of thunk action creators
