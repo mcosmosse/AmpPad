@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 
+    before_action :require_logged_out, only: [:create]
+
     def new
         @user = User.new();
         render :new
@@ -7,7 +9,7 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user.save!
+        if @user.save
             login!(@user)
             render "api/users/show"
         else

@@ -1,5 +1,8 @@
 class Api::SessionsController < ApplicationController
 
+    before_action :require_logged_out, only: [:create]
+    before_action :require_logged_in, only: [:destroy]
+
     def new
         render :new
     end
@@ -16,8 +19,8 @@ class Api::SessionsController < ApplicationController
 
     def destroy
         @user = current_user
-        logout! if logged_in?
-        render "api/users/show"
+        logout!
+        render json: []
         #! don't let people logout if not logged in
     end
 

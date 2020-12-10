@@ -11,8 +11,12 @@ class ApplicationController < ActionController::Base
       session[:session_token] = user.reset_session_token!
     end
     
-    def required_logged_in
-      redirect_to new_session_url unless logged_in? #! change redirect
+    def require_logged_in
+      render json: ['Need to login'] unless logged_in?
+    end
+
+    def require_logged_out
+        render json: ['Must be logged out'] if logged_in?
     end
     
     def logged_in?
