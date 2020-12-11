@@ -37,19 +37,21 @@ class sessionForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.props.formType}</h1>
-                <form onSubmit={this.handleAction}>
-                    <label>Username
-                        <input type='text' value={this.state.username} onChange={this.update('username')}/>
-                    </label>
-                    <label>Password
-                        <input type='password' value={this.state.password} onChange={this.update('password')}/>
-                    </label>
-                    {this.renderErrors()}
-                    <button type='submit' value={this.props.formType}>{this.props.formType}</button>
-                </form>
-                <button type='submit' onClick={() => this.props.demoLogin()}>Try as Demo User</button>
+            <div className='session-page'>
+                <img className='session-image' src='https://www.wattpad.com/img/landing/hero-devices.png' />  
+                <div>
+                    <form className='session-form' onSubmit={this.handleAction}>
+                        <h2 className='session-header'>{this.props.formType} to Amppad</h2>
+                        <label><span>Username</span></label>
+                            <input className='session-input' type='text' value={this.state.username} onChange={this.update('username')}/>
+                        <label><span>Password</span></label>
+                            <input className='session-input' type='password' value={this.state.password} onChange={this.update('password')}/>
+                        {this.renderErrors()}
+                        <button className='session-submit' type='submit' value={this.props.formType}>{this.props.formType}</button>
+                        <button className='session-submit' type='submit' onClick={() => this.props.demoLogin()}>Try as Demo User</button>
+                    </form>
+                    
+                </div>
             </div>
         )
     };
