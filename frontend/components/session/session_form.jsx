@@ -49,6 +49,10 @@ class sessionForm extends React.Component {
                         {this.renderErrors()}
                         <button className='session-submit' type='submit' value={this.props.formType}>{this.props.formType}</button>
                         <button className='session-submit' type='submit' onClick={() => this.props.demoLogin()}>Try as Demo User</button>
+                        {this.props.formType === 'Login' ?
+                            <div>Don't have an account? <Link className='session-signup-link' to='/signup'>Signup</Link> here!</div> :
+                            <div>Already have an account? <Link className='session-signup-link' to='login'>Login</Link> here!</div>
+                        }
                     </form>
                     
                 </div>
