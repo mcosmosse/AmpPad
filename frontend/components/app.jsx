@@ -10,7 +10,6 @@ import { AuthRoute, ProtectedRoute } from "../utils/routes_util";
 
 const App = () => (
   <div>
-    <h1>Wattpad clone</h1>
     <NavbarContainer />
     <Switch>
         <AuthRoute exact path="/login" component={LoginContainer} />

@@ -1,0 +1,48 @@
+.navbar {
+    height: 54px;
+    width: calc(100vw - 300px);
+    padding: 0 150px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    background-color:#ffffff;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-left a {
+    padding: 0 10px;
+}
+
+.nav-left a:first-child {
+    color: orange;
+}
+
+// .nav-middle {
+//      margin-left: auto;
+//      margin-right: auto;
+// }
+
+.nav-right {
+    margin-left: auto;
+}
+
+.nav-dropdowns {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+}
+
+.nav-dropdown-write li {
+    display: none;
+}
+
+.nav-dropdown-profile li {
+    display: none;
+}
+
+.show li {
+    display: block;
+}

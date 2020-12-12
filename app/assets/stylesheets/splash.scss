@@ -5,6 +5,8 @@
     background-image: url('https://static.wattpad.com/img/landing/topRightPortal.svg');
     background-position: right top;
     background-repeat: no-repeat;
+    height: calc(100vh - 54px);
+    padding-top: 100px;
 }
 
 .splash-header-text {
@@ -14,12 +16,17 @@
     padding-right: 80px;
     padding-top: 25px;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    background-image: url('https://static.wattpad.com/img/landing/bottomLeftPortal.svg');
+    background-position: left bottom;
+    background-repeat: no-repeat;
 }
 
 .splash-header-intro {
     color: #ff6112;
-    font-size: 48px;
-    font-family: "Helvetica"
+    font-size: 50px;
+    font-family: "Helvetica";
+    margin-bottom: 0px;
 }
 
 .splash-text {
@@ -28,8 +35,10 @@
 }
 
 .splash-image {
-    max-width: 35%;
-    height: auto;
+    // max-width: 35vw;
+    // height: 22.138613861386137vh;
+    width: 600px;
+    height: 400px;
     padding-right: 200px;
     margin-top: 120px;
 }
