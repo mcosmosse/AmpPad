@@ -1,6 +1,6 @@
 .navbar {
     height: 54px;
-    width: calc(100vw - 300px);
+    width: calc(100vw - 300px - 80px);
     padding: 0 150px;
     position: fixed;
     display: flex;
@@ -26,23 +26,39 @@
 // }
 
 .nav-right {
+    position: relative;
     margin-left: auto;
 }
 
 .nav-dropdowns {
     display: flex;
-    position: fixed;
+    position: absolute;
     flex-direction: row;
+    ul {
+        padding: 0 20px;
+        li {
+            font-weight: normal;
+            font-size: 14px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: black;
+        }
+    }
 }
 
-.nav-dropdown-write li {
+.nav-dropdown-write {
+    width: 60px;
+    li {
     display: none;
+    }
 }
 
-.nav-dropdown-profile li {
+.nav-dropdown-profile {
+    li {
     display: none;
+    }
 }
 
 .show li {
-    display: block;
+    display: inline-block;
 }
