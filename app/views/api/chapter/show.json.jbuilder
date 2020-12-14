@@ -1,0 +1,1 @@
+json.extract! @chapter, :id, :title, :user_id, :story_id, :body, :chapter_number, :published

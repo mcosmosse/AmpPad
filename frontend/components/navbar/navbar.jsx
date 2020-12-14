@@ -27,13 +27,17 @@ class Navbar extends React.Component {
                         :
                         <div className="nav-dropdowns">
                             <ul className={`nav-dropdown-write`} onClick={this.handleDropdown}>Write
-                                <li><Link to='/stories/new'>Create a new story</Link></li>
-                                <li><Link to='/stories'>My stories</Link></li>
+                                <div className='nav-dropdown-write-content'>
+                                    <li><Link to='/stories/new'>Create a new story</Link></li>
+                                    <li><Link to='/stories'>My stories</Link></li>
+                                </div> 
                             </ul>
                             <ul className={`nav-dropdown-profile`} onClick={this.handleDropdown}>Profile
-                                <li><Link to={`/user/${this.props.currentUser.id}`}>My Profile</Link></li>
-                                <li><Link to={`/user/${this.props.currentUser.id}/collections`}>My Collections</Link></li>
-                                <li onClick={this.props.logout}>Logout</li>
+                                <div className='nav-dropdown-profile-content'>
+                                    <li><Link to={`/user/${this.props.currentUser.id}`}>My Profile</Link></li>
+                                    <li><Link to={`/user/${this.props.currentUser.id}/collections`}>My Collections</Link></li>
+                                    <li onClick={this.props.logout}>Logout</li>
+                                </div>
                             </ul>
                         </div>
                     }
