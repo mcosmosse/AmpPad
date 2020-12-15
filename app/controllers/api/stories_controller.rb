@@ -23,7 +23,7 @@ class Api::StoriesController < ApplicationController
     end
 
     def index
-        @stories = Story.all
+        @stories = Story.all.includes(:author)
         render :index
     end
 
@@ -49,7 +49,7 @@ class Api::StoriesController < ApplicationController
     private
 
     def story_params
-        params.require(:story).permit(:title, :complete, :user_id)
+        params.require(:story).permit(:title, :complete, :description, :user_id)
     end
 
 end

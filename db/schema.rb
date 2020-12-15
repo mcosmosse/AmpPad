@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_011844) do
   create_table "stories", force: :cascade do |t|
     t.string "title", null: false
     t.integer "user_id", null: false
+    t.string "description", null: false
     t.boolean "complete", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

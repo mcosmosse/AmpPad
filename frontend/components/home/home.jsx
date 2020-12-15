@@ -1,5 +1,5 @@
 import React from 'react';
-// import NavBar from '../navbar/navbar_container';
+import StoryIndexContainer from '../story/story_index_container';
 
 const Home = ({user, logout}) => {
     const logoutButton = () => {
@@ -8,7 +8,7 @@ const Home = ({user, logout}) => {
 
     return (
         <div>
-            <button onClick={logout}>Log Out</button>
+            <StoryIndexContainer />
         </div>
     );
 }

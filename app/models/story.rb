@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-    validates :title, :user_id, presence: true
+    validates :title, :user_id, :description, presence: true
     validates :complete, inclusion: { in: [true, false] }
 
     belongs_to :author,

@@ -6,9 +6,9 @@ export const REMOVE_STORY = "REMOVE_STORY";
 
 // regular actions
 
-export const receiveStory = (story) => ({
+export const receiveStory = (payload) => ({
     type: RECEIVE_STORY,
-    story
+    payload
 });
 
 export const receiveStories = (stories) => ({
@@ -36,7 +36,7 @@ export const fetchStories = () => dispatch => (
 );
 
 export const deleteStory = id => dispatch => (
-    Util.removeStory(id).then(story => (
+    Util.deleteStory(id).then(story => (
         dispatch(removeStory(story))
     ))
 );

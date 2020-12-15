@@ -20,7 +20,7 @@ export const createStory = story => (
     })
 );
 
-export const removeStory = id => (
+export const deleteStory = id => (
     $.ajax({
         method: 'DELETE',
         url: `api/stories/${id}`
@@ -59,7 +59,7 @@ export const createChapter = chapter => (
     })
 );
 
-export const removeChapter = id => (
+export const deleteChapter = id => (
     $.ajax({
         method: 'DELETE',
         url: `api/chapters/${id}`
