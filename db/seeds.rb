@@ -30,7 +30,7 @@ u4 = User.create!(
 
 s1 = Story.create!(
     title: 'The Stranger',
-    user_id: 16,
+    user_id: u1.id,
     description: "With the intrigue of a psychological thriller, Camus's masterpiece gives us the story of an ordinary man unwittingly drawn into a senseless murder on an Algerian beach. 
     Behind the intrigue, Camus explores what he termed 'the nakedness of man faced with the absurd' and describes the condition of reckless alienation and spiritual exhaustion that characterized so much of twentieth-century life.",
     complete: true
@@ -38,36 +38,36 @@ s1 = Story.create!(
 
 s2 = Story.create!(
     title: 'Sweet Thursday',
-    user_id: 17,
+    user_id: u2.id,
     description: "In Monterey, on the California coast, Sweet Thursday is what they call the day after Lousy Wednesday, which is one of those days that are just naturally bad. Returning to the scene of Cannery Row, the weedy lots and junk heaps and flophouses of Monterey, John Steinbeck once more brings to life the denizens of a netherworld of laughter and tears from Fauna, new headmistress of the local brothel, to Hazel, a bum whose mother must have wanted a daughter.",
     complete: true
 )
 
 s3 = Story.create!(
     title: 'The Winter of Our Discontent',
-    user_id: 17,
+    user_id: u2.id,
     description: "Ethan Allen Hawley, the protagonist of Steinbeck’s last novel, works as a clerk in a grocery store that his family once owned. With Ethan no longer a member of Long Island’s aristocratic class, his wife is restless, and his teenage children are hungry for the tantalizing material comforts he cannot provide. Then one day, in a moment of moral crisis, Ethan decides to take a holiday from his own scrupulous standards.",
     complete: true
 )
 
 s4 = Story.create!(
     title: 'My Unfinished Work',
-    user_id: 18,
+    user_id: u3.id,
     description: "My First Story!",
     complete: false
 )
 
 s5 = Story.create!(
     title: 'qwerty',
-    user_id: 19,
+    user_id: u4.id,
     description: "asdf",
     complete: false
 )
 
 c1 = Chapter.create!(
     title: 'Part I',
-    user_id: 19,
-    story_id: 5,
+    user_id: u4.id,
+    story_id: s5.id,
     chapter_number: 1,
     body: "I am a sick man. ... I am a spiteful man. I am an unattractive man. I believe my liver is diseased. However, I know nothing at all about my disease, and do not know for certain what ails me. I don't consult a doctor for it, and never have, though I have a respect for medicine and doctors. Besides, I am extremely superstitious, sufficiently so to respect medicine, anyway (I am well-educated enough not to be superstitious, but I am superstitious). No, I refuse to consult a doctor from spite. That you probably will not understand. Well, I understand it, though. Of course, I can't explain who it is precisely that I am mortifying in this case by my spite: I am perfectly well aware that I cannot 'pay out' the doctors by not consulting them; I know better than anyone that by all this I am only injuring myself and no one else. But still, if I don't consult a doctor it is from spite. My liver is bad, well--let it get worse!",
     published: true
@@ -75,8 +75,8 @@ c1 = Chapter.create!(
 
 c2 = Chapter.create!(
     title: 'Part One',
-    user_id: 16,
-    story_id: 1,
+    user_id: u1.id,
+    story_id: s1.id,
     chapter_number: 1,
     body: "MOTHER died today. Or, maybe, yesterday; I can’t be sure. The telegram from the
     Home says: YOUR MOTHER PASSED AWAY. FUNERAL TOMORROW. DEEP
@@ -92,8 +92,8 @@ c2 = Chapter.create!(
 
 c3 = Chapter.create!(
     title: "Chapter 1",
-    user_id: 17,
-    story_id: 3,
+    user_id: u2.id,
+    story_id: s3.id,
     chapter_number: 1,
     body: "When the fair gold morning of April stirred Mary Hawley awake, she turned
     over to her husband and saw him, little fingers pulling a frog mouth at her.
@@ -120,8 +120,8 @@ c3 = Chapter.create!(
 
 c4 = Chapter.create!(
     title: "Chapter Two",
-    user_id: 17,
-    story_id: 3 ,
+    user_id: u2.id,
+    story_id: s3.id,
     chapter_number: 2,
     body: "Mary came from the stove and took one of the big grocery bags from him.
     “I’ve got so much to tell you. Can’t wait.”
@@ -148,8 +148,8 @@ c4 = Chapter.create!(
 
 c5 = Chapter.create!(
     title: "poiuyt",
-    user_id: 19,
-    story_id: 5,
+    user_id: u4.id,
+    story_id: s5.id,
     chapter_number: 2,
     body: "asdfjkl;",
     published: false
