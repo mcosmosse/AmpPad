@@ -1,0 +1,40 @@
+.story-index {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 0 0 10px 1px lightgrey;
+}
+
+.story-index-title {
+    position: absolute;
+    font-size: 24px;
+    font-family: helvetica;
+    font-weight: bold;
+    top: -40px;
+    left: 20px;
+}
+
+.story-index-item {
+    height: 300px;
+    width: 350px;
+    padding: 20px 20px;
+    font-family: Helvetica;
+    font-size: 14px;
+    line-height: 2;
+    p {
+        color: gray;
+    }
+}
+
+.story-index-item-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.story-index-item-author {
+    color: lightgray;
+}

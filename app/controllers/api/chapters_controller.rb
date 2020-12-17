@@ -14,7 +14,7 @@ class Api::ChaptersController < ApplicationController
     end
 
     def show
-        @chapter = Chapter.find_by(params[:id])
+        @chapter = Chapter.find_by(id: params[:id])
         if @chapter
             render :show
         else
@@ -23,7 +23,7 @@ class Api::ChaptersController < ApplicationController
     end
 
     def update
-        @chapter = Chapter.find_by(params[:id])
+        @chapter = Chapter.find_by(id: params[:id])
         if @chapter.update(story_params)
             render "api/chapters/show"
         else
@@ -32,7 +32,7 @@ class Api::ChaptersController < ApplicationController
     end
 
     def destroy
-        @chapter = Chapter.find_by(params[:id])
+        @chapter = Chapter.find_by(id: params[:id])
 
         if @chapter.destroy
           render :show

@@ -3,13 +3,13 @@ import React from 'react';
 
 const StoryIndexItem = (props) => {
     return (
-        <li>
-            <Link to={`/stories/${props.story.id}`}>{`${props.story.title}`}</Link>
+        <div className='story-index-item'>
+            <Link className='story-index-item-title' to={`/stories/${props.story.id}`}>{`${props.story.title}`}</Link>
             <br></br>
-            <Link to={`/users/${props.story.userId}`}>{`${props.story.author}`}</Link>
+            <Link className='story-index-item-author' to={`/users/${props.story.userId}`}>by {`${props.story.author}`}</Link>
             <br></br>
             <p>{props.story.description}</p>
-        </li>
+        </div>
     )
 }
 // ! fix author link

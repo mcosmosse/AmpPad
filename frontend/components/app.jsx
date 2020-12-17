@@ -5,6 +5,7 @@ import HomeContainer from "./home/home_container";
 import Splash from "./splash/splash";
 import NavbarContainer from "./navbar/navbar_container";
 import StoryShowContainer from "./story/story_show_container";
+import ChapterShowContainer from "./chapter/chapter_show_container";
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../utils/routes_util";
@@ -14,8 +15,8 @@ const App = () => (
     <NavbarContainer />
     <div className='navbar-filler'></div>
     <Switch>
-        <Route path="/stories/:storyId" component={StoryShowContainer} />
-        {/* <Route path="/stories/:storyId/:chapterNumber" component={ChapterShowContainer} */}
+        <Route path="/stories/:storyId/:chapterId" component={ChapterShowContainer} />
+        <Route path="/stories/:storyId" component={StoryShowContainer} />    
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />
         <ProtectedRoute exact path="/home" component={HomeContainer} />
