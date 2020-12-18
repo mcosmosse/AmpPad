@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 class ChapterShow extends React.Component {
 
     componentDidMount() {
-        this.props.fetchStory(this.props.match.params.storyId);
-        this.props.fetchChapter(this.props.match.params.chapterId);
+        this.props.fetchStory(this.props.match.params.storyId)
+            .then(() => this.props.fetchChapter(this.props.match.params.chapterId));
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.chapterId !== this.props.match.params.chapterId) {
+            this.props.fetchChapter(this.props.match.params.chapterId);
+        }
     }
 
     lastChapter() {
@@ -38,6 +44,7 @@ class ChapterShow extends React.Component {
                     {this.lastChapter()}
                 </div>
             );
+            // ! eventually add table of contents
         }
     }
 }

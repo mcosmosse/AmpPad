@@ -11,7 +11,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => ({
     action: (user) => dispatch(login(user)),
-    demoLogin: () => dispatch(login({ username: "DemoUser", password: "demouser" })),
+    demoLogin: () => dispatch(login({ username: "DemoUser", password: "demouser" }))
 });
 
 export default connect(mSTP, mDTP)(sessionForm);

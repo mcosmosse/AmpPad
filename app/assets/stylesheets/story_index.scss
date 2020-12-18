@@ -3,7 +3,7 @@
     position: relative;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 800px;
+    width: 900px;
     margin: auto;
     margin-top: 100px;
     box-shadow: 0 0 10px 1px lightgrey;
@@ -11,16 +11,16 @@
 
 .story-index-title {
     position: absolute;
-    font-size: 24px;
+    font-size: 36px;
     font-family: helvetica;
     font-weight: bold;
-    top: -40px;
-    left: 20px;
+    top: -60px;
+    left: 10px;
 }
 
 .story-index-item {
     height: 300px;
-    width: 350px;
+    width: 400px;
     padding: 20px 20px;
     font-family: Helvetica;
     font-size: 14px;

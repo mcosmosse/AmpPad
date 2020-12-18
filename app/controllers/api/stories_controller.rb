@@ -1,12 +1,10 @@
 class Api::StoriesController < ApplicationController
 
-    def new
-
-    end
-
     def create
-        @story = Story.create(story_params)
-        if @story.save!
+        @story = Story.new(story_params)
+        @story.user_id = current_user.id
+        if @story.save
+            # create a chapter, save it, then render v
             render "api/stories/show"
         else
             render json: @story.errors.full_messages, status: 422

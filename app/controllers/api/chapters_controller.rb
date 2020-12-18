@@ -1,12 +1,8 @@
 class Api::ChaptersController < ApplicationController
 
-    def new
-
-    end
-
     def create
-        @chapter = Chapter.create(chapter_params)
-        if @chapter.save!
+        @chapter = Chapter.new(chapter_params)
+        if @chapter.save
             render "api/chapters/show"
         else
             render json: @chapter.errors.full_messages, status: 422
