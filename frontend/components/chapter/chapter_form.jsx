@@ -48,6 +48,12 @@ class ChapterForm extends React.Component {
         this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
     }
 
+    updateTitle() {
+        return e => {
+            this.setState({ chapter: {...this.state.chapter, title: e.currentTarget.value}})
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         return this.props.action(this.state.chapter)
@@ -60,6 +66,12 @@ class ChapterForm extends React.Component {
         } else {
             return (
                 <div className='chapter-form'>
+                    <div className='chapter-title-form' >
+                        <input 
+                        type="text"
+                        value={this.state.chapter.title}
+                        onChange={this.updateTitle()}/>
+                    </div>
                     <div>
                         <button onClick={this.onBoldClick}><b>B</b></button>
                         <button onClick={this.onItalicClick}><em>I</em></button>

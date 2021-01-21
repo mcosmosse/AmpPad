@@ -577,13 +577,26 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       this.onChange(draft_js__WEBPACK_IMPORTED_MODULE_1__.RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
     }
   }, {
+    key: "updateTitle",
+    value: function updateTitle() {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState({
+          chapter: _objectSpread(_objectSpread({}, _this2.state.chapter), {}, {
+            title: e.currentTarget.value
+          })
+        });
+      };
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       e.preventDefault();
       return this.props.action(this.state.chapter).then(function (res) {
-        return _this2.props.history.push("/stories/".concat(_this2.props.story.id, "/").concat(_this2.props.chapter.id));
+        return _this3.props.history.push("/stories/".concat(_this3.props.story.id, "/").concat(_this3.props.chapter.id));
       });
     }
   }, {
@@ -594,7 +607,13 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-form"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "chapter-title-form"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+          type: "text",
+          value: this.state.chapter.title,
+          onChange: this.updateTitle()
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           onClick: this.onBoldClick
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           onClick: this.onItalicClick
