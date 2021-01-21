@@ -69,7 +69,7 @@ export const deleteChapter = id => (
 export const updateChapter = chapter => (
     $.ajax({
         method: 'PATCH',
-        url: `api/chapter/${chapter.id}`,
+        url: `api/chapters/${chapter.id}`,
         data: {chapter}
     })
 )

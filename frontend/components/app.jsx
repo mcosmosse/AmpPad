@@ -8,6 +8,7 @@ import StoryShowContainer from "./story/story_show_container";
 import ChapterShowContainer from "./chapter/chapter_show_container";
 import EditStoryForm from "./story/edit_story_form_container";
 import CreateStoryFormContainer from "./story/create_story_form_container";
+import EditChapterFormContainer from "./chapter/edit_chapter_container";
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../utils/routes_util";
@@ -18,8 +19,9 @@ const App = () => (
     <div className='navbar-filler'></div>
     <Switch>
         <ProtectedRoute exact path="/stories/new" component={CreateStoryFormContainer} />
-        <Route path="/stories/:storyId/:chapterId" component={ChapterShowContainer} />
+        <Route exact path="/stories/:storyId/:chapterId" component={ChapterShowContainer} />
         <Route exact path="/stories/:storyId" component={StoryShowContainer} /> 
+        <Route exact path="/stories/:storyId/:chapterId/new" component={EditChapterFormContainer} />
         <ProtectedRoute path="/mystories/:storyId" component={EditStoryForm} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />

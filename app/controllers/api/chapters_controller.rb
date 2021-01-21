@@ -2,6 +2,7 @@ class Api::ChaptersController < ApplicationController
 
     def create
         @chapter = Chapter.new(chapter_params)
+        @chapter.user_id = current_user.id
         if @chapter.save
             render "api/chapters/show"
         else
@@ -20,7 +21,7 @@ class Api::ChaptersController < ApplicationController
 
     def update
         @chapter = Chapter.find_by(id: params[:id])
-        if @chapter.update(story_params)
+        if @chapter.update(chapter_params)
             render "api/chapters/show"
         else
             render json: @chapter.errors.full_messages, status: 422
@@ -39,8 +40,8 @@ class Api::ChaptersController < ApplicationController
 
     private
 
-    def story_params
-        params.require(:chapter).permit(:title, :body, :chapter_number, :complete)
+    def chapter_params
+        params.require(:chapter).permit(:title, :body, :chapter_number, :complete, :user_id, :story_id)
     end
 
 end

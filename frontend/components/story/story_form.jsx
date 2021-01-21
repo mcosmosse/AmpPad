@@ -16,7 +16,7 @@ class StoryForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         return this.props.action(this.state)
-                .then(res => this.props.history.push('/home'));
+                .then(res => this.props.history.push(`/stories/${res.payload.story.id}/${Object.keys(res.payload.chapters)[0]}/new`));
                 // res is an action, has payload
                 // storyId and chapterId, use to push new url
     }
