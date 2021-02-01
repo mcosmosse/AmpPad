@@ -21,7 +21,7 @@ const App = () => (
         <ProtectedRoute exact path="/stories/new" component={CreateStoryFormContainer} />
         <Route exact path="/stories/:storyId/:chapterId" component={ChapterShowContainer} />
         <Route exact path="/stories/:storyId" component={StoryShowContainer} /> 
-        <Route exact path="/stories/:storyId/:chapterId/new" component={EditChapterFormContainer} />
+        <Route exact path="/stories/:storyId/:chapterId/edit" component={EditChapterFormContainer} />
         <ProtectedRoute path="/mystories/:storyId" component={EditStoryForm} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />

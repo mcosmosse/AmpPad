@@ -1,6 +1,6 @@
 .chapter-show-div {
     margin: auto;
-    width: 40%;
+    max-width: 40%;
     h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 30px;
@@ -19,5 +19,8 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 2;
+    white-space: pre-wrap;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 

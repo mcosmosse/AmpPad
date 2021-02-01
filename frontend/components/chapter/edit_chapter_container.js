@@ -20,13 +20,14 @@ class EditChapterForm extends React.Component {
     
     componentDidMount() {
         this.props.fetchStory(this.props.match.params.storyId).then(
-            this.props.fetchChapter(this.props.match.params.chapterId));
+            () => this.props.fetchChapter(this.props.match.params.chapterId)
+        );
     }
 
     render() {
         const { action, formType, history, chapter, story } = this.props;
 
-        if (!chapter || !story) return null;
+        if (!story || !chapter.body) return null;
 
         return (
             <ChapterForm 

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
+import { Editor, EditorState, ContentState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
 class ChapterForm extends React.Component {
     constructor(props) {
         super(props);
-        let editorState = EditorState.createEmpty()
+        let contentState = ContentState.createFromText(this.props.chapter.body);
+        let editorState = EditorState.createWithContent(contentState);
+        // let editorState = EditorState.createEmpty();
         this.state = {
             chapter: this.props.chapter,
             editorState: editorState
@@ -87,9 +89,13 @@ class ChapterForm extends React.Component {
             );
         }
         // things to do:
-        // change chapter title
+        // DONE!: change chapter title
         // DONE!: make sure chapter from persists on refresh
         // DONE!: see react practice test, don't ever let the form render until the state is included
+        // fix problems with new lines multiplying and saving
+        // display new lines in chapter show
+        // sometimes chapter form doesn't render correctly: another chapter is being added to the state
+        // when a story is fetched, probably a reducer problem
     }
 }
 

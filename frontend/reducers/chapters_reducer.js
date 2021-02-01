@@ -9,9 +9,9 @@ const chaptersReducer = (state = {}, action) => {
             return action.payload.chapters != undefined ? action.payload.chapters : {} ;
         case RECEIVE_CHAPTER:
             newState[action.chapter.id] = action.chapter;
-            return newState;
+            return {[action.chapter.id]: action.chapter};
         case RECEIVE_CHAPTERS:
-            return action.chapters
+            return action.chapters;
         case REMOVE_CHAPTER:
             delete newState[action.chapter.id];
             return newState;

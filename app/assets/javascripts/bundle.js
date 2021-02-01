@@ -436,7 +436,7 @@ var App = function App() {
     component: _story_story_show_container__WEBPACK_IMPORTED_MODULE_6__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
     exact: true,
-    path: "/stories/:storyId/:chapterId/new",
+    path: "/stories/:storyId/:chapterId/edit",
     component: _chapter_edit_chapter_container__WEBPACK_IMPORTED_MODULE_10__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_11__.ProtectedRoute, {
     path: "/mystories/:storyId",
@@ -521,7 +521,9 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ChapterForm);
 
     _this = _super.call(this, props);
-    var editorState = draft_js__WEBPACK_IMPORTED_MODULE_1__.EditorState.createEmpty();
+    var contentState = draft_js__WEBPACK_IMPORTED_MODULE_1__.ContentState.createFromText(_this.props.chapter.body);
+    var editorState = draft_js__WEBPACK_IMPORTED_MODULE_1__.EditorState.createWithContent(contentState); // let editorState = EditorState.createEmpty();
+
     _this.state = {
       chapter: _this.props.chapter,
       editorState: editorState
@@ -627,9 +629,13 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
           onClick: this.handleSubmit
         }, "Publish"));
       } // things to do:
-      // change chapter title
+      // DONE!: change chapter title
       // DONE!: make sure chapter from persists on refresh
       // DONE!: see react practice test, don't ever let the form render until the state is included
+      // fix problems with new lines multiplying and saving
+      // display new lines in chapter show
+      // sometimes chapter form doesn't render correctly: another chapter is being added to the state
+      // when a story is fetched, probably a reducer problem
 
     }
   }]);
@@ -726,7 +732,12 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-div"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "chapter-show-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: "chapter-show-edit",
+          to: "/stories/".concat(this.props.match.params.storyId, "/").concat(this.props.match.params.chapterId, "/edit")
+        }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
         }, this.props.chapter.body), this.lastChapter()); // ! eventually add table of contents
       }
@@ -864,7 +875,11 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
   _createClass(EditChapterForm, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchStory(this.props.match.params.storyId).then(this.props.fetchChapter(this.props.match.params.chapterId));
+      var _this = this;
+
+      this.props.fetchStory(this.props.match.params.storyId).then(function () {
+        return _this.props.fetchChapter(_this.props.match.params.chapterId);
+      });
     }
   }, {
     key: "render",
@@ -875,7 +890,7 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
           history = _this$props.history,
           chapter = _this$props.chapter,
           story = _this$props.story;
-      if (!chapter || !story) return null;
+      if (!story || !chapter.body) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_chapter_form__WEBPACK_IMPORTED_MODULE_2__.default, {
         action: action,
         formType: formType,
@@ -1663,7 +1678,7 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       return this.props.action(this.state).then(function (res) {
-        return _this3.props.history.push("/stories/".concat(res.payload.story.id, "/").concat(Object.keys(res.payload.chapters)[0], "/new"));
+        return _this3.props.history.push("/stories/".concat(res.payload.story.id, "/").concat(Object.keys(res.payload.chapters)[0], "/edit"));
       }); // res is an action, has payload
       // storyId and chapterId, use to push new url
     }
@@ -2003,6 +2018,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/chapter_actions */ "./frontend/actions/chapter_actions.js");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/story_actions */ "./frontend/actions/story_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2018,7 +2035,7 @@ var chaptersReducer = function chaptersReducer() {
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTER:
       newState[action.chapter.id] = action.chapter;
-      return newState;
+      return _defineProperty({}, action.chapter.id, action.chapter);
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTERS:
       return action.chapters;

@@ -35,12 +35,20 @@ class ChapterShow extends React.Component {
         } else {
             return (
                 <div className='chapter-show-div'>
+                    <div className='chapter-show-header'>
+                        <Link
+                            className='chapter-show-edit'
+                            to={`/stories/${this.props.match.params.storyId}/${this.props.match.params.chapterId}/edit`}
+                        >
+                            Edit
+                        </Link>
+                    </div>
                     <h1>{this.props.chapter.title}</h1>
                     <div></div>
                     <hr></hr>
-                    <p className='chapter-show-text'>
+                    <pre className='chapter-show-text'>
                         {this.props.chapter.body}
-                    </p>
+                    </pre>
                     {this.lastChapter()}
                 </div>
             );
