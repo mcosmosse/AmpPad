@@ -540,14 +540,29 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
   _createClass(ChapterForm, [{
     key: "onChange",
     value: function onChange(editorState) {
+      // const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
+      // const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
       var blocks = (0,draft_js__WEBPACK_IMPORTED_MODULE_1__.convertToRaw)(editorState.getCurrentContent()).blocks;
-      var value = blocks.map(function (block) {
-        return !block.text.trim() && '\n' || block.text;
-      }).join('\n');
+      var mappedBlocks = blocks.map(function (block) {
+        return !block.text.trim() && "\n" || block.text;
+      });
+      var newText = "";
+
+      for (var i = 0; i < mappedBlocks.length; i++) {
+        var block = mappedBlocks[i]; // handle last block
+
+        if (i === mappedBlocks.length - 1) {
+          newText += block;
+        } else {
+          // otherwise we join with \n, except if the block is already a \n
+          if (block === "\n") newText += block;else newText += block + "\n";
+        }
+      }
+
       this.setState({
         editorState: editorState,
         chapter: _objectSpread(_objectSpread({}, this.state.chapter), {}, {
-          body: value
+          body: newText
         })
       });
     }
@@ -615,7 +630,9 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
           type: "text",
           value: this.state.chapter.title,
           onChange: this.updateTitle()
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          onClick: this.handleSubmit
+        }, "Publish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           onClick: this.onBoldClick
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           onClick: this.onItalicClick
@@ -624,10 +641,9 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
         }, "U")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(draft_js__WEBPACK_IMPORTED_MODULE_1__.Editor, {
           editorState: this.state.editorState,
           onChange: this.onChange,
+          placeholder: "Type your text",
           handleKeyCommand: this.handleKeyCommand
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: this.handleSubmit
-        }, "Publish"));
+        }));
       } // things to do:
       // DONE!: change chapter title
       // DONE!: make sure chapter from persists on refresh
@@ -890,7 +906,7 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
           history = _this$props.history,
           chapter = _this$props.chapter,
           story = _this$props.story;
-      if (!story || !chapter.body) return null;
+      if (!story || chapter.body === undefined) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_chapter_form__WEBPACK_IMPORTED_MODULE_2__.default, {
         action: action,
         formType: formType,
@@ -2018,8 +2034,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/chapter_actions */ "./frontend/actions/chapter_actions.js");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/story_actions */ "./frontend/actions/story_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2035,7 +2049,7 @@ var chaptersReducer = function chaptersReducer() {
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTER:
       newState[action.chapter.id] = action.chapter;
-      return _defineProperty({}, action.chapter.id, action.chapter);
+      return newState;
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTERS:
       return action.chapters;

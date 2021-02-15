@@ -27,7 +27,7 @@ class EditChapterForm extends React.Component {
     render() {
         const { action, formType, history, chapter, story } = this.props;
 
-        if (!story || !chapter.body) return null;
+        if (!story || chapter.body === undefined) return null;
 
         return (
             <ChapterForm 

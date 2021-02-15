@@ -21,11 +21,29 @@ class ChapterForm extends React.Component {
     }
 
     onChange(editorState) {
+        // const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
+        // const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
         const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
-        const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
+        const mappedBlocks = blocks.map(
+          block => (!block.text.trim() && "\n") || block.text
+        );
+    
+        let newText = "";
+        for (let i = 0; i < mappedBlocks.length; i++) {
+          const block = mappedBlocks[i];
+    
+          // handle last block
+          if (i === mappedBlocks.length - 1) {
+            newText += block;
+          } else {
+            // otherwise we join with \n, except if the block is already a \n
+            if (block === "\n") newText += block;
+            else newText += block + "\n";
+          }
+        }
         this.setState({
             editorState,
-            chapter: {...this.state.chapter, body: value}
+            chapter: {...this.state.chapter, body: newText}
         })
     }
 
@@ -52,7 +70,7 @@ class ChapterForm extends React.Component {
 
     updateTitle() {
         return e => {
-            this.setState({ chapter: {...this.state.chapter, title: e.currentTarget.value}})
+            this.setState({ chapter: {...this.state.chapter, title: e.currentTarget.value }})
         }
     }
 
@@ -73,6 +91,7 @@ class ChapterForm extends React.Component {
                         type="text"
                         value={this.state.chapter.title}
                         onChange={this.updateTitle()}/>
+                        <button onClick={this.handleSubmit}>Publish</button>
                     </div>
                     <div>
                         <button onClick={this.onBoldClick}><b>B</b></button>
@@ -82,9 +101,9 @@ class ChapterForm extends React.Component {
                     <Editor
                         editorState={this.state.editorState}
                         onChange={this.onChange}
+                        placeholder='Type your text'
                         handleKeyCommand={this.handleKeyCommand}
                     />
-                    <button onClick={this.handleSubmit}>Publish</button>
                 </div>
             );
         }

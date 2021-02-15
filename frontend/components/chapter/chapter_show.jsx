@@ -46,9 +46,7 @@ class ChapterShow extends React.Component {
                     <h1>{this.props.chapter.title}</h1>
                     <div></div>
                     <hr></hr>
-                    <pre className='chapter-show-text'>
-                        {this.props.chapter.body}
-                    </pre>
+                    <pre className='chapter-show-text'>{this.props.chapter.body}</pre>
                     {this.lastChapter()}
                 </div>
             );

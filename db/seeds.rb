@@ -79,15 +79,7 @@ c2 = Chapter.create!(
     user_id: u1.id,
     story_id: s1.id,
     chapter_number: 1,
-    body: "MOTHER died today. Or, maybe, yesterday; I can’t be sure. The telegram from the
-    Home says: YOUR MOTHER PASSED AWAY. FUNERAL TOMORROW. DEEP
-    SYMPATHY. Which leaves the matter doubtful; it could have been yesterday.
-    The Home for Aged Persons is at Marengo, some fifty miles from Algiers. With
-    the two o’clock bus I should get there well before nightfall. Then I can spend the
-    night there, keeping the usual vigil beside the body, and be back here by tomorrow
-    evening. I have fixed up with my employer for two days’ leave; obviously, under the
-    circumstances, he couldn’t refuse. Still, I had an idea he looked annoyed, and I said,
-    without thinking: “Sorry, sir, but it’s not my fault, you know.”",
+    body: "MOTHER died today. Or, maybe, yesterday; I can’t be sure. The telegram from the Home says: YOUR MOTHER PASSED AWAY. FUNERAL TOMORROW. DEEP SYMPATHY. Which leaves the matter doubtful; it could have been yesterday. The Home for Aged Persons is at Marengo, some fifty miles from Algiers. With the two o’clock bus I should get there well before nightfall. Then I can spend the night there, keeping the usual vigil beside the body, and be back here by tomorrow evening. I have fixed up with my employer for two days’ leave; obviously, under the circumstances, he couldn’t refuse. Still, I had an idea he looked annoyed, and I said, without thinking: “Sorry, sir, but it’s not my fault, you know.”",
     published: true
 )
 
@@ -96,8 +88,7 @@ c3 = Chapter.create!(
     user_id: u2.id,
     story_id: s3.id,
     chapter_number: 1,
-    body: "When the fair gold morning of April stirred Mary Hawley awake, she turned
-    over to her husband and saw him, little fingers pulling a frog mouth at her.
+    body: "When the fair gold morning of April stirred Mary Hawley awake, she turned over to her husband and saw him, little fingers pulling a frog mouth at her.
     “You’re silly,” she said. “Ethan, you’ve got your comical genius.”
     “Oh say, Miss Mousie, will you marry me?”
     “Did you wake up silly?”
@@ -105,15 +96,11 @@ c3 = Chapter.create!(
     “I guess you did. Do you remember it’s Good Friday?”
     He said hollowly, “The dirty Romans are forming up for Calvary.”
     “Don’t be sacrilegious. Will Marullo let you close the store at eleven?”
-    “Darling chicken-flower—Marullo is a Catholic and a wop. He probably
-    won’t show up at all. I’ll close at noon till the execution’s over.”
+    “Darling chicken-flower—Marullo is a Catholic and a wop. He probably won’t show up at all. I’ll close at noon till the execution’s over.”
     “That’s Pilgrim talk. It’s not nice.”
-    “Nonsense, ladybug. That’s from my mother’s side. That’s pirate talk. It was
-    an execution, you know.”
-    “They were not pirates. You said yourself, whalers, and you said they had
-    letters of what-you-call-it from the Continental Congress.”
-    “The ships they fired on thought they were pirates. And those Roman G.I.’s
-    thought it was an execution.”
+    “Nonsense, ladybug. That’s from my mother’s side. That’s pirate talk. It was an execution, you know.”
+    “They were not pirates. You said yourself, whalers, and you said they had letters of what-you-call-it from the Continental Congress.”
+    “The ships they fired on thought they were pirates. And those Roman G.I.’s thought it was an execution.”
     “I’ve made you mad. I like you better silly.”
     “I am silly. Everybody knows that.”",
     published: true
@@ -126,8 +113,7 @@ c4 = Chapter.create!(
     chapter_number: 2,
     body: "Mary came from the stove and took one of the big grocery bags from him.
     “I’ve got so much to tell you. Can’t wait.”
-    He kissed her and she felt the texture of his lips. “What’s the matter?” she
-    asked.
+    He kissed her and she felt the texture of his lips. “What’s the matter?” she asked.
     “Little tired.”
     “But you were closed three hours.”
     “Plenty to do.”
@@ -141,8 +127,7 @@ c4 = Chapter.create!(
     “I don’t know.”
     “You don’t feel well.”
     “Damn it, I do too.”
-    “With all the lovely things—I’ll wait till after dinner for our part. Are you
-    going to be surprised.”
+    “With all the lovely things—I’ll wait till after dinner for our part. Are you going to be surprised.”
     ",
     published: true
 )
