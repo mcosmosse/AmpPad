@@ -528,10 +528,10 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       chapter: _this.props.chapter,
       editorState: editorState
     };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
-    _this.onUnderlineClick = _this.onUnderlineClick.bind(_assertThisInitialized(_this));
-    _this.onBoldClick = _this.onBoldClick.bind(_assertThisInitialized(_this));
-    _this.onItalicClick = _this.onItalicClick.bind(_assertThisInitialized(_this));
+    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this)); // this.onUnderlineClick = this.onUnderlineClick.bind(this);
+    // this.onBoldClick = this.onBoldClick.bind(this);
+    // this.onItalicClick = this.onItalicClick.bind(this);
+
     _this.handleKeyCommand = _this.handleKeyCommand.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -577,22 +577,16 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       }
 
       return 'not-handled';
-    }
-  }, {
-    key: "onUnderlineClick",
-    value: function onUnderlineClick() {
-      this.onChange(draft_js__WEBPACK_IMPORTED_MODULE_1__.RichUtils.toggleInlineStyle(this.state.editorState, 'UNDERLINE'));
-    }
-  }, {
-    key: "onBoldClick",
-    value: function onBoldClick() {
-      this.onChange(draft_js__WEBPACK_IMPORTED_MODULE_1__.RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
-    }
-  }, {
-    key: "onItalicClick",
-    value: function onItalicClick() {
-      this.onChange(draft_js__WEBPACK_IMPORTED_MODULE_1__.RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
-    }
+    } // onUnderlineClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'UNDERLINE'));
+    // }
+    // onBoldClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+    // }
+    // onItalicClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
+    // }
+
   }, {
     key: "updateTitle",
     value: function updateTitle() {
@@ -612,6 +606,19 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+
+      if (this.state.chapter.title == "") {
+        return this.setState({
+          chapter: _objectSpread(_objectSpread({}, this.state.chapter), {}, {
+            title: "Untitled"
+          })
+        }, function () {
+          return _this3.props.action(_this3.state.chapter).then(function (res) {
+            return _this3.props.history.push("/stories/".concat(_this3.props.story.id, "/").concat(_this3.props.chapter.id));
+          });
+        });
+      }
+
       return this.props.action(this.state.chapter).then(function (res) {
         return _this3.props.history.push("/stories/".concat(_this3.props.story.id, "/").concat(_this3.props.chapter.id));
       });
@@ -624,21 +631,18 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-form"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "chapter-form-publish",
+          onClick: this.handleSubmit
+        }, "Publish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-title-form"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "text",
           value: this.state.chapter.title,
+          placeholder: "Untitled" // autofocus
+          ,
           onChange: this.updateTitle()
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: this.handleSubmit
-        }, "Publish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: this.onBoldClick
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: this.onItalicClick
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("em", null, "I")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: this.onUnderlineClick
-        }, "U")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(draft_js__WEBPACK_IMPORTED_MODULE_1__.Editor, {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(draft_js__WEBPACK_IMPORTED_MODULE_1__.Editor, {
           editorState: this.state.editorState,
           onChange: this.onChange,
           placeholder: "Type your text",
@@ -648,10 +652,10 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       // DONE!: change chapter title
       // DONE!: make sure chapter from persists on refresh
       // DONE!: see react practice test, don't ever let the form render until the state is included
-      // fix problems with new lines multiplying and saving
-      // display new lines in chapter show
-      // sometimes chapter form doesn't render correctly: another chapter is being added to the state
-      // when a story is fetched, probably a reducer problem
+      // DONE!: fix problems with new lines multiplying and saving
+      // DONE!: display new lines in chapter show
+      // DONE!: sometimes chapter form doesn't render correctly: another chapter is being added to the state (reducer problem)
+      // implement rich text (bold, italics, underline) and save it to database correctly
 
     }
   }]);

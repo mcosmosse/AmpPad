@@ -13,9 +13,9 @@ class ChapterForm extends React.Component {
             editorState: editorState
         };
         this.onChange = this.onChange.bind(this);
-        this.onUnderlineClick = this.onUnderlineClick.bind(this);
-        this.onBoldClick = this.onBoldClick.bind(this);
-        this.onItalicClick = this.onItalicClick.bind(this);
+        // this.onUnderlineClick = this.onUnderlineClick.bind(this);
+        // this.onBoldClick = this.onBoldClick.bind(this);
+        // this.onItalicClick = this.onItalicClick.bind(this);
         this.handleKeyCommand = this.handleKeyCommand.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -56,17 +56,17 @@ class ChapterForm extends React.Component {
         return 'not-handled';
     }
 
-    onUnderlineClick() {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'UNDERLINE'));
-    }
+    // onUnderlineClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'UNDERLINE'));
+    // }
     
-    onBoldClick() {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
-    }
+    // onBoldClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+    // }
     
-    onItalicClick() {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
-    }
+    // onItalicClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
+    // }
 
     updateTitle() {
         return e => {
@@ -76,6 +76,12 @@ class ChapterForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.chapter.title == "") {
+            return this.setState({ chapter: {...this.state.chapter, title: "Untitled" }}, () => (
+                this.props.action(this.state.chapter)
+                    .then(res => this.props.history.push(`/stories/${this.props.story.id}/${this.props.chapter.id}`))   
+            ))
+        }
         return this.props.action(this.state.chapter)
                 .then(res => this.props.history.push(`/stories/${this.props.story.id}/${this.props.chapter.id}`));
     }
@@ -86,18 +92,22 @@ class ChapterForm extends React.Component {
         } else {
             return (
                 <div className='chapter-form'>
+                    <div>
+                        <button className='chapter-form-publish' onClick={this.handleSubmit}>Publish</button>
+                    </div>
                     <div className='chapter-title-form' >
                         <input 
                         type="text"
                         value={this.state.chapter.title}
+                        placeholder='Untitled'
+                        // autofocus
                         onChange={this.updateTitle()}/>
-                        <button onClick={this.handleSubmit}>Publish</button>
                     </div>
-                    <div>
+                    {/* <div>
                         <button onClick={this.onBoldClick}><b>B</b></button>
                         <button onClick={this.onItalicClick}><em>I</em></button>
                         <button onClick={this.onUnderlineClick}>U</button>
-                    </div>
+                    </div> */}
                     <Editor
                         editorState={this.state.editorState}
                         onChange={this.onChange}
@@ -111,10 +121,10 @@ class ChapterForm extends React.Component {
         // DONE!: change chapter title
         // DONE!: make sure chapter from persists on refresh
         // DONE!: see react practice test, don't ever let the form render until the state is included
-        // fix problems with new lines multiplying and saving
-        // display new lines in chapter show
-        // sometimes chapter form doesn't render correctly: another chapter is being added to the state
-        // when a story is fetched, probably a reducer problem
+        // DONE!: fix problems with new lines multiplying and saving
+        // DONE!: display new lines in chapter show
+        // DONE!: sometimes chapter form doesn't render correctly: another chapter is being added to the state (reducer problem)
+        // implement rich text (bold, italics, underline) and save it to database correctly
     }
 }
 

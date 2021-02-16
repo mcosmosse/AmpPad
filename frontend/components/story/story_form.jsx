@@ -24,7 +24,7 @@ class StoryForm extends React.Component {
     render() { 
         return (
             <form className='story-form' onSubmit={this.handleSubmit}>
-                <h2>{this.props.formType}</h2>
+                <h2>Story Details</h2>
                 <label><span>Title</span>
                     <input 
                     type="text"
