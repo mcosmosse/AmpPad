@@ -9,7 +9,10 @@ const chaptersReducer = (state = {}, action) => {
             return action.payload.chapters != undefined ? action.payload.chapters : {} ;
         case RECEIVE_CHAPTER:
             newState[action.chapter.id] = action.chapter;
+            // return { [action.chapter.id]: action.chapter };
             return newState;
+            // i don't remember why i didn't return a new slice of state to remove the unnecessary chapters for the chapter form
+            // now i remember it was for the link to the next chapter, use ownProps to search for correct chapter
         case RECEIVE_CHAPTERS:
             return action.chapters;
         case REMOVE_CHAPTER:

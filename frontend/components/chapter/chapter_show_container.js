@@ -6,7 +6,8 @@ import { orderChapters } from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => ({
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
-    chapters: orderChapters(state, ownProps.match.params.storyId)
+    chapters: orderChapters(state, ownProps.match.params.storyId),
+    authorId: state.session.currentUserId
 });
 
 const mDTP = dispatch => ({

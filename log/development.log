@@ -48617,3 +48617,2792 @@ Processing by Api::StoriesController#show as JSON
 Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for ::1 at 2021-02-15 16:12:36 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mcosmosse/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 1669ms (Views: 1663.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:12:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:15:09 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 557ms (Views: 556.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:15:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 480ms (Views: 478.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:15:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:16:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 514ms (Views: 512.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 16:20:09 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (13.6ms)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:20:10 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (16.9ms)
+Completed 200 OK in 22ms (Views: 16.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:20:11 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:20:11 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:20:14 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:20:15 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:20:15 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:22:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 452ms (Views: 451.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:22:19 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.6ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:22:20 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:23:09 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:23:09 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.3ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:23:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:23:11 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (4.6ms)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:23:11 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.8ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:23:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 473ms (Views: 471.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:23:56 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.8ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:23:56 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:24:06 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:24:06 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:26:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 425ms (Views: 424.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:26:45 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.0ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:26:45 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:27:21 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 482ms (Views: 481.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:27:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 64ms (Views: 63.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:27:39 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (12.2ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:27:39 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:27:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 454ms (Views: 452.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:27:59 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:28:09 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:28:09 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.4ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:28:09 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.0ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:29:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:17 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.9ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:18 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:29:18 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.5ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:19 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.8ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:29:19 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:25 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.8ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:29:25 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:26 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:29:26 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:27 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.9ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:29:27 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.2ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:27 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:28 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:29:28 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:29:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:34 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:29:34 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:29:37 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:37 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.1ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:29:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:29:41 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.8ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:29:41 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:41:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 468ms (Views: 466.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:34 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.5ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:41:34 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.0ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:36 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:41:36 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:38 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.9ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 16:41:38 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:40 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.0ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:42 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:42 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:43 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.5ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:43 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:44 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:44 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:45 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 16:41:47 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (4.1ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:41:48 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 16:41:48 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (5.4ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:49 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.8ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:50 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:50 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:51 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:51 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:52 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:52 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:41:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:41:55 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:41:55 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:42:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:42:02 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:42:02 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.8ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:46:54 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:46:54 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/api/chapters/103" for ::1 at 2021-02-15 16:47:09 -0800
+Processing by Api::ChaptersController#update as JSON
+  Parameters: {"chapter"=>{"id"=>"103", "title"=>"Chapter 1", "userId"=>"34", "storyId"=>"126", "body"=>"    When the fair gold morning of April stirred Mary Hawley awake, she turned over to her husband and saw him, little fingers pulling a frog mouth at her.\n    “You’re silly,” she said. “Ethan, you’ve got your comical genius.”\n    “Oh say, Miss Mousie, will you marry me?”\n    “Did you wake up silly?”\n    “The year’s at the day. The day’s at the morn.”\n    “I guess you did. Do you remember it’s Good Friday?”\n    He said hollowly, “The dirty Romans are forming up for Calvary.”\n    “Don’t be sacrilegious. Will Marullo let you close the store at eleven?”\n    “Darling chicken-flower—Marullo is a Catholic and a wop. He probably won’t show up at all. I’ll close at noon till the execution’s over.”\n    “That’s Pilgrim talk. It’s not nice.”\n    “Nonsense, ladybug. That’s from my mother’s side. That’s pirate talk. It was an execution, you know.”\n    “They were not pirates. You said yourself, whalers, and you said they had letters of what-you-call-it from the Continental Congress.”\n    “The ships they fired on thought they were pirates. And those Roman G.I.’s thought it was an execution.”\n    “I’ve made you mad. I like you better silly.”\n    “I am silly. Everybody knows that.”", "chapterNumber"=>"1", "published"=>"true"}, "id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:23
+Unpermitted parameters: :id, :userId, :storyId, :chapterNumber, :published
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mChapter Update (27.3ms)[0m  [1m[33mUPDATE "chapters" SET "body" = $1, "updated_at" = $2 WHERE "chapters"."id" = $3[0m  [["body", "    When the fair gold morning of April stirred Mary Hawley awake, she turned over to her husband and saw him, little fingers pulling a frog mouth at her.\n    “You’re silly,” she said. “Ethan, you’ve got your comical genius.”\n    “Oh say, Miss Mousie, will you marry me?”\n    “Did you wake up silly?”\n    “The year’s at the day. The day’s at the morn.”\n    “I guess you did. Do you remember it’s Good Friday?”\n    He said hollowly, “The dirty Romans are forming up for Calvary.”\n    “Don’t be sacrilegious. Will Marullo let you close the store at eleven?”\n    “Darling chicken-flower—Marullo is a Catholic and a wop. He probably won’t show up at all. I’ll close at noon till the execution’s over.”\n    “That’s Pilgrim talk. It’s not nice.”\n    “Nonsense, ladybug. That’s from my mother’s side. That’s pirate talk. It was an execution, you know.”\n    “They were not pirates. You said yourself, whalers, and you said they had letters of what-you-call-it from the Continental Congress.”\n    “The ships they fired on thought they were pirates. And those Roman G.I.’s thought it was an execution.”\n    “I’ve made you mad. I like you better silly.”\n    “I am silly. Everybody knows that.”"], ["updated_at", "2021-02-16 00:47:09.438894"], ["id", 103]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 71ms (Views: 2.0ms | ActiveRecord: 60.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:47:09 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:47:09 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:47:15 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.3ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:47:15 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/api/chapters/103" for ::1 at 2021-02-15 16:47:23 -0800
+Processing by Api::ChaptersController#update as JSON
+  Parameters: {"chapter"=>{"id"=>"103", "title"=>"Chapter 1", "userId"=>"34", "storyId"=>"126", "body"=>"    When the fair gold morning of April stirred Mary Hawley awake, she turned over to her husband and saw him, little fingers pulling a frog mouth at her.\n    “You’re silly,” she said. “Ethan, you’ve got your comical genius.”\n    “Oh say, Miss Mousie, will you marry me?”\n    “Did you wake up silly?”\n    “The year’s at the day. The day’s at the morn.”\n    “I guess you did. Do you remember it’s Good Friday?”\n    He said hollowly, “The dirty Romans are forming up for Calvary.”\n    “Don’t be sacrilegious. Will Marullo let you close the store at eleven?”\n    “Darling chicken-flower—Marullo is a Catholic and a wop. He probably won’t show up at all. I’ll close at noon till the execution’s over.”\n    “That’s Pilgrim talk. It’s not nice.”\n    “Nonsense, ladybug. That’s from my mother’s side. That’s pirate talk. It was an execution, you know.”\n    “They were not pirates. You said yourself, whalers, and you said they had letters of what-you-call-it from the Continental Congress.”\n    “The ships they fired on thought they were pirates. And those Roman G.I.’s thought it was an execution.”\n    “I’ve made you mad. I like you better silly.”\n    “I am silly. Everybody knows that.”", "chapterNumber"=>"1", "published"=>"true"}, "id"=>"103"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:23
+Unpermitted parameters: :id, :userId, :storyId, :chapterNumber, :published
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.9ms)
+Completed 200 OK in 12ms (Views: 3.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:47:23 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:47:23 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 16:54:35 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 422ms (Views: 420.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:35 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (4.2ms)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:54:35 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.8ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:36 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.5ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:54:36 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 16:54:38 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (3.3ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:40 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.8ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:41 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:54:41 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:42 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:54:42 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 16:54:43 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 16:54:43 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:00:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 451ms (Views: 449.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:00:38 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.8ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (5.1ms)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:00:38 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:00:40 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:00:40 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:00:41 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:00:41 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:00:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 654ms (Views: 652.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:00:57 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.9ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.4ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:00:57 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 443ms (Views: 441.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:39 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (4.3ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:39 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.7ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.0ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:42 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (8.8ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:42 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 45ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:42 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:42 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:43 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:43 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:44 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.9ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.5ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:44 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:44 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:44 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 49ms (Views: 47.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.9ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:46 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:47 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:47 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:48 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.8ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:48 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:49 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.0ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:01:50 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:52 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:53 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:53 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:54 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:54 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:54 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:54 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:55 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:55 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:56 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:56 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:58 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.9ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:58 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:01:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:01:59 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:01:59 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:00 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:00 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:02:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:01 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:01 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:02:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:02 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.9ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:02 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:02:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:02 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:02 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/api/chapters/104" for ::1 at 2021-02-15 17:02:07 -0800
+Processing by Api::ChaptersController#update as JSON
+  Parameters: {"chapter"=>{"id"=>"104", "title"=>"Chapter Two", "userId"=>"34", "storyId"=>"126", "body"=>"    Mary came from the stove and took one of the big grocery bags from him.\n    “I’ve got so much to tell you. Can’t wait.”\n    He kissed her and she felt the texture of his lips. “What’s the matter?” she asked.\n    “Little tired.”\n    “But you were closed three hours.”\n    “Plenty to do.”\n    “I hope you aren’t gloomy.”\n    “It’s a gloomy day.”\n    “It’s been a wonderful day. Wait till you hear.”\n    “Where are the kids?”\n    “Upstairs with the radio. They’ve got something to tell you too.”\n    “Trouble?”\n    “Now why do you say that?”\n    “I don’t know.”\n    “You don’t feel well.”\n    “Damn it, I do too.”\n    “With all the lovely things—I’ll wait till after dinner for our part. Are you going to be surprised.”\n\n", "chapterNumber"=>"2", "published"=>"true"}, "id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:23
+Unpermitted parameters: :id, :userId, :storyId, :chapterNumber, :published
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mChapter Update (0.5ms)[0m  [1m[33mUPDATE "chapters" SET "body" = $1, "updated_at" = $2 WHERE "chapters"."id" = $3[0m  [["body", "    Mary came from the stove and took one of the big grocery bags from him.\n    “I’ve got so much to tell you. Can’t wait.”\n    He kissed her and she felt the texture of his lips. “What’s the matter?” she asked.\n    “Little tired.”\n    “But you were closed three hours.”\n    “Plenty to do.”\n    “I hope you aren’t gloomy.”\n    “It’s a gloomy day.”\n    “It’s been a wonderful day. Wait till you hear.”\n    “Where are the kids?”\n    “Upstairs with the radio. They’ve got something to tell you too.”\n    “Trouble?”\n    “Now why do you say that?”\n    “I don’t know.”\n    “You don’t feel well.”\n    “Damn it, I do too.”\n    “With all the lovely things—I’ll wait till after dinner for our part. Are you going to be surprised.”\n\n"], ["updated_at", "2021-02-16 01:02:07.763725"], ["id", 104]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 49ms (Views: 2.5ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:07 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.7ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:07 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:10 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:10 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:11 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.8ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:11 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:12 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:12 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:13 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:13 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:02:14 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.8ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:15 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.9ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:16 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:16 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:17 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.3ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:17 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:18 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:18 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:02:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:19 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:19 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:02:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:20 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (6.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:20 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:22 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:22 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:02:23 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:25 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.1ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:02:25 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:27 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.6ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:02:27 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:30 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:31 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.4ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:31 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/api/chapters/104" for ::1 at 2021-02-15 17:02:34 -0800
+Processing by Api::ChaptersController#update as JSON
+  Parameters: {"chapter"=>{"id"=>"104", "title"=>"Chapter 2", "userId"=>"34", "storyId"=>"126", "body"=>"    Mary came from the stove and took one of the big grocery bags from him.\n    “I’ve got so much to tell you. Can’t wait.”\n    He kissed her and she felt the texture of his lips. “What’s the matter?” she asked.\n    “Little tired.”\n    “But you were closed three hours.”\n    “Plenty to do.”\n    “I hope you aren’t gloomy.”\n    “It’s a gloomy day.”\n    “It’s been a wonderful day. Wait till you hear.”\n    “Where are the kids?”\n    “Upstairs with the radio. They’ve got something to tell you too.”\n    “Trouble?”\n    “Now why do you say that?”\n    “I don’t know.”\n    “You don’t feel well.”\n    “Damn it, I do too.”\n    “With all the lovely things—I’ll wait till after dinner for our part. Are you going to be surprised.”\n\n", "chapterNumber"=>"2", "published"=>"true"}, "id"=>"104"}
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:23
+Unpermitted parameters: :id, :userId, :storyId, :chapterNumber, :published
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[36mChapter Update (0.4ms)[0m  [1m[33mUPDATE "chapters" SET "title" = $1, "updated_at" = $2 WHERE "chapters"."id" = $3[0m  [["title", "Chapter 2"], ["updated_at", "2021-02-16 01:02:34.975301"], ["id", 104]]
+  ↳ app/controllers/api/chapters_controller.rb:24
+  [1m[35m (169.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/chapters_controller.rb:24
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.8ms)
+Completed 200 OK in 180ms (Views: 3.3ms | ActiveRecord: 171.5ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:02:35 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.5ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/104" for ::1 at 2021-02-15 17:02:35 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"104"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 17:02:36 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (4.8ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/stories/130" for ::1 at 2021-02-15 17:02:48 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"130"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 130]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (1.8ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/130" for ::1 at 2021-02-15 17:02:49 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"130"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 130]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.2ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/107" for ::1 at 2021-02-15 17:02:49 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"107"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories/130" for ::1 at 2021-02-15 17:02:50 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"130"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 130]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.5ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/107" for ::1 at 2021-02-15 17:02:50 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"107"}
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:03:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 449ms (Views: 447.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/stories/130" for ::1 at 2021-02-15 17:03:20 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"130"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.6ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 130]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (4.0ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/chapters/107" for ::1 at 2021-02-15 17:03:20 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"107"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 17:03:21 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (4.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" ORDER BY "chapters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/stories" for ::1 at 2021-02-15 17:08:29 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (4.5ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:08:31 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:08:32 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:08:32 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.7ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:08:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 426ms (Views: 424.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:08:34 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (3.3ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:10:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 431ms (Views: 429.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:10:29 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:10:29 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.6ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 17:10:32 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X4GXS05BSkqXwhn1opd5-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/stories/126" for ::1 at 2021-02-15 17:10:33 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"126"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.5ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 126]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.8ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/chapters/103" for ::1 at 2021-02-15 17:10:33 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"103"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stories" for ::1 at 2021-02-15 17:10:34 -0800
+Processing by Api::StoriesController#index as JSON
+  Rendering api/stories/index.json.jbuilder
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 36]]
+  ↳ app/views/api/stories/index.json.jbuilder:1
+  Rendered api/stories/index.json.jbuilder (4.8ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/stories/129" for ::1 at 2021-02-15 17:10:35 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"129"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 129], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 129]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.1ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stories/129" for ::1 at 2021-02-15 17:10:37 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"129"}
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 129], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 129]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/chapters/106" for ::1 at 2021-02-15 17:10:37 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"106"}
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/stories/129" for ::1 at 2021-02-15 17:10:38 -0800
+Processing by Api::StoriesController#show as JSON
+  Parameters: {"id"=>"129"}
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = $1 LIMIT $2[0m  [["id", 129], ["LIMIT", 1]]
+  ↳ app/controllers/api/stories_controller.rb:19
+  Rendering api/stories/show.json.jbuilder
+  [1m[36mChapter Load (0.4ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."story_id" = $1[0m  [["story_id", 129]]
+  ↳ app/views/api/stories/show.json.jbuilder:6
+  Rendered api/stories/show.json.jbuilder (2.0ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/chapters/106" for ::1 at 2021-02-15 17:10:38 -0800
+Processing by Api::ChaptersController#show as JSON
+  Parameters: {"id"=>"106"}
+  [1m[36mChapter Load (0.3ms)[0m  [1m[34mSELECT  "chapters".* FROM "chapters" WHERE "chapters"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/api/chapters_controller.rb:14
+  Rendering api/chapters/show.json.jbuilder
+  Rendered api/chapters/show.json.jbuilder (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+

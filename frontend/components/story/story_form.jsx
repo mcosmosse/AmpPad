@@ -38,15 +38,15 @@ class StoryForm extends React.Component {
                     onChange={this.update('description')}/>
                 </label>
                 <label><span>Completed?</span>
-                    <label>Yes
-                        <input type="radio" value={true}/>
+                    <label>
+                        <input type="radio" value={true}/>Yes
                     </label>
                     <br></br>
-                    <label>No
-                        <input type="radio" value={false}/>
+                    <label>
+                        <input type="radio" value={false}/>No
                     </label>
                 </label>
-                <button type="submit" value={this.props.formType}>{this.props.formType}</button>
+                <button className='story-form-button' type="submit" value={this.props.formType}>Save</button>
                 {/* getting a no=false in url??? */}
             </form>
         );

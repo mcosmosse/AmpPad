@@ -123,7 +123,8 @@ class ChapterForm extends React.Component {
         // DONE!: see react practice test, don't ever let the form render until the state is included
         // DONE!: fix problems with new lines multiplying and saving
         // DONE!: display new lines in chapter show
-        // DONE!: sometimes chapter form doesn't render correctly: another chapter is being added to the state (reducer problem)
+        // sometimes chapter form doesn't render correctly: another chapter is being added to the state
+        // when there's more than 1 chapter in a story (reducer problem)
         // implement rich text (bold, italics, underline) and save it to database correctly
     }
 }

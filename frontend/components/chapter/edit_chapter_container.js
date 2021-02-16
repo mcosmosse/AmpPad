@@ -4,8 +4,8 @@ import ChapterForm from './chapter_form';
 import { fetchChapter, updateChapter } from '../../actions/chapter_actions';
 import { fetchStory } from '../../actions/story_actions';
 
-const mSTP = state => ({
-    chapter: Object.values(state.entities.chapters)[0],
+const mSTP = (state, ownProps) => ({
+    chapter: state.entities.chapters[ownProps.match.params.chapterId],
     story: Object.values(state.entities.stories)[0],
     formType: 'Update Chapter'
 });

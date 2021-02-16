@@ -654,7 +654,8 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       // DONE!: see react practice test, don't ever let the form render until the state is included
       // DONE!: fix problems with new lines multiplying and saving
       // DONE!: display new lines in chapter show
-      // DONE!: sometimes chapter form doesn't render correctly: another chapter is being added to the state (reducer problem)
+      // sometimes chapter form doesn't render correctly: another chapter is being added to the state
+      // when there's more than 1 chapter in a story (reducer problem)
       // implement rich text (bold, italics, underline) and save it to database correctly
 
     }
@@ -745,6 +746,18 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "editChapter",
+    value: function editChapter() {
+      if (this.props.chapter.userId === this.props.authorId) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: "chapter-show-edit",
+          to: "/stories/".concat(this.props.match.params.storyId, "/").concat(this.props.match.params.chapterId, "/edit")
+        }, "Edit");
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.props.chapter === undefined) {
@@ -754,10 +767,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
           className: "chapter-show-div"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-          className: "chapter-show-edit",
-          to: "/stories/".concat(this.props.match.params.storyId, "/").concat(this.props.match.params.chapterId, "/edit")
-        }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
+        }, this.editChapter()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
         }, this.props.chapter.body), this.lastChapter()); // ! eventually add table of contents
       }
@@ -796,7 +806,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
-    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.orderChapters)(state, ownProps.match.params.storyId)
+    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.orderChapters)(state, ownProps.match.params.storyId),
+    authorId: state.session.currentUserId
   };
 };
 
@@ -859,9 +870,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
-    chapter: Object.values(state.entities.chapters)[0],
+    chapter: state.entities.chapters[ownProps.match.params.chapterId],
     story: Object.values(state.entities.stories)[0],
     formType: 'Update Chapter'
   };
@@ -1708,7 +1719,7 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "story-form",
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Story Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         value: this.state.title,
         onChange: this.update('title')
@@ -1716,16 +1727,17 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.description,
         onChange: this.update('description')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Completed?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Yes", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Completed?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "radio",
         value: true
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "No", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }), "Yes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "radio",
         value: false
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }), "No")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "story-form-button",
         type: "submit",
         value: this.props.formType
-      }, this.props.formType));
+      }, "Save"));
     }
   }]);
 
@@ -2052,8 +2064,11 @@ var chaptersReducer = function chaptersReducer() {
       return action.payload.chapters != undefined ? action.payload.chapters : {};
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTER:
-      newState[action.chapter.id] = action.chapter;
+      newState[action.chapter.id] = action.chapter; // return { [action.chapter.id]: action.chapter };
+
       return newState;
+    // i don't remember why i didn't return a new slice of state to remove the unnecessary chapters for the chapter form
+    // now i remember it was for the link to the next chapter, use ownProps to search for correct chapter
 
     case _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CHAPTERS:
       return action.chapters;

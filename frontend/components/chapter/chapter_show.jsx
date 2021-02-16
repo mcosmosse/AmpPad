@@ -27,6 +27,21 @@ class ChapterShow extends React.Component {
         }
     }
 
+    editChapter() {
+        if (this.props.chapter.userId === this.props.authorId) {
+            return (
+                <Link
+                className='chapter-show-edit'
+                to={`/stories/${this.props.match.params.storyId}/${this.props.match.params.chapterId}/edit`}
+                >
+                    Edit
+                </Link>
+            )
+        } else {
+            return null;
+        }
+    }
+
     render() {
         if (this.props.chapter === undefined) {
             return (
@@ -36,12 +51,7 @@ class ChapterShow extends React.Component {
             return (
                 <div className='chapter-show-div'>
                     <div className='chapter-show-header'>
-                        <Link
-                            className='chapter-show-edit'
-                            to={`/stories/${this.props.match.params.storyId}/${this.props.match.params.chapterId}/edit`}
-                        >
-                            Edit
-                        </Link>
+                        {this.editChapter()}
                     </div>
                     <h1>{this.props.chapter.title}</h1>
                     <div></div>
