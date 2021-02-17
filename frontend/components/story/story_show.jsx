@@ -10,6 +10,20 @@ class StoryShow extends React.Component {
         this.props.fetchStory(this.props.match.params.storyId);
     }
 
+    editChapter() {
+        if (this.props.story.userId === this.props.currentUser) {
+            return (
+                <Link
+                to={`/mystories/${this.props.match.params.storyId}`}
+                >
+                    Edit
+                </Link>
+            )
+        } else {
+            return null;
+        }
+    }
+
     render() {
         if (this.props.story === undefined || this.props.chapters.length === 0) {
             return null;
@@ -19,6 +33,7 @@ class StoryShow extends React.Component {
                 <div className='story-show'>
                     <h2>{this.props.story.title}</h2>
                     <Link className='story-show-read' to={`/stories/${this.props.story.id}/${firstChapter.id}`}>Read</Link>
+                    {this.editChapter()}
                     <p className='story-desc'>{this.props.story.description}</p>
                     <div className='story-tags'></div>
                     <p className='story-table'>Table of Contents</p>

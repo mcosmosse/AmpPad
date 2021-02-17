@@ -1606,7 +1606,8 @@ var EditStoryForm = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           action = _this$props.action,
           formType = _this$props.formType,
-          story = _this$props.story;
+          story = _this$props.story,
+          history = _this$props.history;
 
       if (story === undefined) {
         return null;
@@ -1614,7 +1615,8 @@ var EditStoryForm = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_story_form__WEBPACK_IMPORTED_MODULE_2__.default, {
           action: action,
           formType: formType,
-          story: story
+          story: story,
+          history: history
         });
       }
     }
@@ -1625,7 +1627,7 @@ var EditStoryForm = /*#__PURE__*/function (_React$Component) {
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    story: state.stories[ownProps.match.params.storyId],
+    story: state.entities.stories[ownProps.match.params.storyId],
     formType: 'Edit Story'
   };
 };
@@ -1786,7 +1788,7 @@ var StoryIndexItem = function StoryIndexItem(props) {
     className: "my-story-index-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: "my-story-index-item-title",
-    to: "/stories/".concat(props.story.id)
+    to: "/mystories/".concat(props.story.id)
   }, "".concat(props.story.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.story.description));
 };
 
@@ -2105,6 +2107,17 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchStory(this.props.match.params.storyId);
     }
   }, {
+    key: "editChapter",
+    value: function editChapter() {
+      if (this.props.story.userId === this.props.currentUser) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          to: "/mystories/".concat(this.props.match.params.storyId)
+        }, "Edit");
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -2118,7 +2131,7 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.story.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           className: "story-show-read",
           to: "/stories/".concat(this.props.story.id, "/").concat(firstChapter.id)
-        }, "Read"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        }, "Read"), this.editChapter(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "story-desc"
         }, this.props.story.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-tags"
@@ -2170,7 +2183,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     story: state.entities.stories[ownProps.match.params.storyId],
-    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.orderChapters)(state, ownProps.match.params.storyId)
+    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.orderChapters)(state, ownProps.match.params.storyId),
+    currentUser: state.session.currentUserId
   };
 };
 

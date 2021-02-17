@@ -10,7 +10,7 @@ class EditStoryForm extends React.Component {
     }
 
     render() {
-        const { action, formType, story } = this.props;
+        const { action, formType, story, history } = this.props;
 
         if (story === undefined) {
             return null;
@@ -20,6 +20,7 @@ class EditStoryForm extends React.Component {
                     action={action}
                     formType={formType}
                     story={story}
+                    history={history}
                 />
             );
         }
@@ -27,7 +28,7 @@ class EditStoryForm extends React.Component {
 }
 
 const mSTP = (state, ownProps) => ({
-    story: state.stories[ownProps.match.params.storyId],
+    story: state.entities.stories[ownProps.match.params.storyId],
     formType: 'Edit Story'
 });
 
