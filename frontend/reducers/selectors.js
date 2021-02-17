@@ -3,3 +3,8 @@ export const orderChapters = (state, storyId) => {
     .filter((chapter) => (parseInt(storyId) === chapter.storyId))
     .sort((a, b) => (a.chapterNumber - b.chapterNumber))
 }
+
+export const myStories = (state, currentUserId) => {
+    return Object.values(state.entities.stories)
+    .filter((story) => (parseInt(currentUserId) === story.userId))
+}

@@ -29,7 +29,7 @@ class Navbar extends React.Component {
                             <ul className={`nav-dropdown-write`} onClick={this.handleDropdown}>Write
                                 <div className='nav-dropdown-write-content'>
                                     <li><Link to='/stories/new'>Create a new story</Link></li>
-                                    <li><Link to='/stories'>My stories</Link></li>
+                                    <li><Link to='/mystories'>My stories</Link></li>
                                 </div> 
                             </ul>
                             <ul className={`nav-dropdown-profile`} onClick={this.handleDropdown}>Profile

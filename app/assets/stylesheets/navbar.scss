@@ -51,15 +51,17 @@
 .nav-dropdown-write {
     width: 60px;
     position: relative;
+    cursor: pointer;
     div {
-    display: none;
+        display: none;
     }
 }
 
 .nav-dropdown-profile {
     position: relative;
+    cursor: pointer;
     div {
-    display: none;
+        display: none;
     }
 }
 
@@ -69,6 +71,8 @@
 
 .show div {
     display: inline-block;
+    background-color: white;
+    z-index: 3;
 }
 
 .nav-dropdown-profile-content {
