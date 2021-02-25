@@ -484,6 +484,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var draft_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! draft-js */ "./node_modules/draft-js/lib/Draft.js");
 /* harmony import */ var draft_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(draft_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var draft_js_dist_Draft_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! draft-js/dist/Draft.css */ "./node_modules/draft-js/dist/Draft.css");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -511,6 +512,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -630,6 +632,11 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleDropdown",
+    value: function handleDropdown(e) {
+      e.target.classList.toggle('show');
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.state.chapter === undefined) {
@@ -637,7 +644,17 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-form"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+          className: "chapter-form-table",
+          onClick: this.handleDropdown
+        }, this.props.chapter.chapterNumber, ") ", this.props.chapter.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/mystories/".concat(this.props.story.id)
+        })), this.props.chapters.map(function (chapter) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            key: chapter.id,
+            to: "/stories/".concat(chapter.storyId, "/").concat(chapter.id, "/edit")
+          }, chapter.chapterNumber, ": ", chapter.title));
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "chapter-form-publish",
           onClick: this.handleSubmit
         }, "Publish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -663,6 +680,10 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       // sometimes chapter form doesn't render correctly: another chapter is being added to the state
       // when there's more than 1 chapter in a story (reducer problem)
       // implement rich text (bold, italics, underline) and save it to database correctly
+      // sometimes the wrong RECEIVE_STORY is called, breaking the chapter form
+      //! features to be added:
+      //! table of contents
+      //! new chapter button
 
     }
   }]);
@@ -848,6 +869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chapter_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chapter_form */ "./frontend/components/chapter/chapter_form.jsx");
 /* harmony import */ var _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/chapter_actions */ "./frontend/actions/chapter_actions.js");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -876,9 +898,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var mSTP = function mSTP(state, ownProps) {
   return {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
+    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__.orderChapters)(state, ownProps.match.params.storyId),
     story: Object.values(state.entities.stories)[0],
     formType: 'Update Chapter'
   };
@@ -926,12 +950,14 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
           formType = _this$props.formType,
           history = _this$props.history,
           chapter = _this$props.chapter,
-          story = _this$props.story;
+          story = _this$props.story,
+          chapters = _this$props.chapters;
       if (!story || chapter.body === undefined) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_chapter_form__WEBPACK_IMPORTED_MODULE_2__.default, {
         action: action,
         formType: formType,
         chapter: chapter,
+        chapters: chapters,
         history: history,
         story: story
       });

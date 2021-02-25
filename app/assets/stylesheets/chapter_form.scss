@@ -5,6 +5,24 @@
     margin: auto;
 }
 
+.chapter-form-table {
+    position: relative;
+    cursor: pointer;
+    div {
+        display: none;
+    }
+}
+
+.show div {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    display: inline-block;
+    background-color: white;
+    z-index: 3;
+    font-weight: bold;
+}
+
 .chapter-form-publish {
     float: right;
     width: 100px;

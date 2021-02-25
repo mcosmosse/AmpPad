@@ -1,6 +1,7 @@
 import React from 'react';
 import { Editor, EditorState, ContentState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 import 'draft-js/dist/Draft.css';
+import { Link } from 'react-router-dom';
 
 class ChapterForm extends React.Component {
     constructor(props) {
@@ -86,6 +87,10 @@ class ChapterForm extends React.Component {
                 .then(res => this.props.history.push(`/stories/${this.props.story.id}/${this.props.chapter.id}`));
     }
 
+    handleDropdown(e) {
+        e.target.classList.toggle('show')
+    }
+
     render() {
         if (this.state.chapter === undefined) {
             return null;
@@ -93,6 +98,19 @@ class ChapterForm extends React.Component {
             return (
                 <div className='chapter-form'>
                     <div>
+                        <ul className='chapter-form-table' onClick={this.handleDropdown}>
+                            {this.props.chapter.chapterNumber}) {this.props.chapter.title}
+                            <div>
+                                <li><Link to={`/mystories/${this.props.story.id}`}></Link></li>
+                                {this.props.chapters.map((chapter) => {
+                                    return (
+                                        <li><Link key={chapter.id} to={`/stories/${chapter.storyId}/${chapter.id}/edit`}>
+                                            {chapter.chapterNumber}: {chapter.title}
+                                        </Link></li>
+                                    )
+                                })}
+                            </div>
+                        </ul>
                         <button className='chapter-form-publish' onClick={this.handleSubmit}>Publish</button>
                     </div>
                     <div className='chapter-title-form' >
@@ -126,6 +144,10 @@ class ChapterForm extends React.Component {
         // sometimes chapter form doesn't render correctly: another chapter is being added to the state
         // when there's more than 1 chapter in a story (reducer problem)
         // implement rich text (bold, italics, underline) and save it to database correctly
+        // sometimes the wrong RECEIVE_STORY is called, breaking the chapter form
+        //! features to be added:
+        //! table of contents
+        //! new chapter button
     }
 }
 
