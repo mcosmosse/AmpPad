@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import border from '../../assets/border.jpg';
 
 class ChapterShow extends React.Component {
 
@@ -73,7 +74,8 @@ class ChapterShow extends React.Component {
                     </div>
                     <h1>{this.props.chapter.title}</h1>
                     <div></div>
-                    <hr></hr>
+                    {/* <hr></hr> */}
+                    <img src={border} />
                     <pre className='chapter-show-text'>{this.props.chapter.body}</pre>
                     {this.lastChapter()}
                 </div>

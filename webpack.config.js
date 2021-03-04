@@ -1,4 +1,5 @@
 const path = require('path');
+var SRC = path.resolve(__dirname, 'frontend/assets');
 
 module.exports = {
   entry: './frontend/amppad.jsx',
@@ -18,6 +19,11 @@ module.exports = {
       },
       {
         test: /\.css$/, use: 'css-loader'
+      },
+      {
+        include: SRC,
+        test: /\.(eot|gif|otf|png|svg|ttf|woff|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [ 'file-loader' ],
       }
     ]
   },
