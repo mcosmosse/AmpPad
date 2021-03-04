@@ -646,7 +646,7 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleDropdown",
     value: function handleDropdown(e) {
-      e.currentTarget.classList.toggle('show');
+      e.currentTarget.classList.toggle('show-form');
     }
   }, {
     key: "addNewChapter",
@@ -713,13 +713,12 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
       // DONE!: see react practice test, don't ever let the form render until the state is included
       // DONE!: fix problems with new lines multiplying and saving
       // DONE!: display new lines in chapter show
+      // DONE!: table of contents
+      // DONE!: new chapter button
       // sometimes chapter form doesn't render correctly: another chapter is being added to the state
       // when there's more than 1 chapter in a story (reducer problem)
       // implement rich text (bold, italics, underline) and save it to database correctly
       // sometimes the wrong RECEIVE_STORY is called, breaking the chapter form
-      //! features to be added:
-      //! table of contents
-      //! new chapter button
 
     }
   }]);
@@ -821,6 +820,11 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "handleDropdown",
+    value: function handleDropdown(e) {
+      e.currentTarget.classList.toggle('show-table');
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.props.chapter === undefined) {
@@ -828,7 +832,20 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-div"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+          className: "chapter-show-table",
+          onClick: this.handleDropdown
+        }, this.props.story.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          to: "/stories/".concat(this.props.story.id)
+        }, this.props.story.title)), this.props.chapters.map(function (chapter) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+            key: chapter.id
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            to: "/stories/".concat(chapter.storyId, "/").concat(chapter.id)
+          }, chapter.chapterNumber, ": ", chapter.title));
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          to: "/home"
+        }, "Return to Home Page")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-header"
         }, this.editChapter()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
@@ -870,7 +887,8 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
     chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.orderChapters)(state, ownProps.match.params.storyId),
-    authorId: state.session.currentUserId
+    authorId: state.session.currentUserId,
+    story: state.entities.stories[ownProps.match.params.storyId]
   };
 };
 

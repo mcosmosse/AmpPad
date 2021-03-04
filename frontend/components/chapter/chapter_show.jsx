@@ -42,6 +42,10 @@ class ChapterShow extends React.Component {
         }
     }
 
+    handleDropdown(e) {
+        e.currentTarget.classList.toggle('show-table')
+    }
+
     render() {
         if (this.props.chapter === undefined) {
             return (
@@ -50,6 +54,20 @@ class ChapterShow extends React.Component {
         } else {
             return (
                 <div className='chapter-show-div'>
+                    <ul className='chapter-show-table' onClick={this.handleDropdown}>
+                        {this.props.story.title}    
+                        <div>
+                            <li><Link to={`/stories/${this.props.story.id}`}>{this.props.story.title}</Link></li>
+                            {this.props.chapters.map((chapter) => {
+                                return (
+                                    <li key={chapter.id}><Link to={`/stories/${chapter.storyId}/${chapter.id}`}>
+                                        {chapter.chapterNumber}: {chapter.title}
+                                    </Link></li>
+                                )
+                            })}
+                            <li><Link to={`/home`}>Return to Home Page</Link></li>
+                        </div>
+                    </ul>
                     <div className='chapter-show-header'>
                         {this.editChapter()}
                     </div>
