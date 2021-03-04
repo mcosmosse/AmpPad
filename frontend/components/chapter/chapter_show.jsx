@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import border from '../../../public/border.jpg';
+// import border from '../../../public/border.jpg';
 
 class ChapterShow extends React.Component {
 
