@@ -41,7 +41,7 @@ class Api::ChaptersController < ApplicationController
     private
 
     def chapter_params
-        params.require(:chapter).permit(:title, :body, :chapter_number, :complete, :user_id, :story_id)
+        params.require(:chapter).permit(:title, :body, :chapter_number, :published, :user_id, :story_id)
     end
 
 end

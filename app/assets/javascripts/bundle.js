@@ -546,6 +546,15 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ChapterForm, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.chapter.id !== this.props.chapter.id) {
+        this.setState({
+          chapter: this.props.chapter
+        });
+      }
+    }
+  }, {
     key: "onChange",
     value: function onChange(editorState) {
       // const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
@@ -634,11 +643,30 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleDropdown",
     value: function handleDropdown(e) {
-      e.target.classList.toggle('show');
+      e.currentTarget.classList.toggle('show');
+    }
+  }, {
+    key: "addNewChapter",
+    value: function addNewChapter() {
+      var _this4 = this;
+
+      var newChapter = {
+        title: "Untitled Part ".concat(this.props.chapters.length + 1),
+        body: '',
+        user_id: this.props.currentUserId,
+        story_id: this.props.story.id,
+        chapter_number: this.props.chapters.length + 1,
+        published: false
+      };
+      return this.props.createChapter(newChapter).then(function (res) {
+        return _this4.props.history.push("/stories/".concat(res.chapter.storyId, "/").concat(res.chapter.id, "/edit"));
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this5 = this;
+
       if (this.state.chapter === undefined) {
         return null;
       } else {
@@ -647,14 +675,19 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
           className: "chapter-form-table",
           onClick: this.handleDropdown
-        }, this.props.chapter.chapterNumber, ") ", this.props.chapter.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+        }, this.state.chapter.chapterNumber, ") ", this.state.chapter.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/mystories/".concat(this.props.story.id)
-        })), this.props.chapters.map(function (chapter) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-            key: chapter.id,
+        }, this.props.story.title)), this.props.chapters.map(function (chapter) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+            key: chapter.id
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             to: "/stories/".concat(chapter.storyId, "/").concat(chapter.id, "/edit")
           }, chapter.chapterNumber, ": ", chapter.title));
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          onClick: function onClick() {
+            return _this5.addNewChapter();
+          }
+        }, "Add New Chapter"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "chapter-form-publish",
           onClick: this.handleSubmit
         }, "Publish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -904,6 +937,7 @@ var mSTP = function mSTP(state, ownProps) {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
     chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__.orderChapters)(state, ownProps.match.params.storyId),
     story: Object.values(state.entities.stories)[0],
+    currentUserId: state.session.currentUserId,
     formType: 'Update Chapter'
   };
 };
@@ -918,6 +952,9 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchStory: function fetchStory(id) {
       return dispatch((0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_4__.fetchStory)(id));
+    },
+    createChapter: function createChapter(chapter) {
+      return dispatch((0,_actions_chapter_actions__WEBPACK_IMPORTED_MODULE_3__.createChapter)(chapter));
     }
   };
 };
@@ -927,20 +964,35 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(EditChapterForm);
 
-  function EditChapterForm() {
+  function EditChapterForm(props) {
+    var _this;
+
     _classCallCheck(this, EditChapterForm);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      mounted: false
+    };
+    return _this;
   }
 
   _createClass(EditChapterForm, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
       this.props.fetchStory(this.props.match.params.storyId).then(function () {
-        return _this.props.fetchChapter(_this.props.match.params.chapterId);
+        return _this2.props.fetchChapter(_this2.props.match.params.chapterId).then(_this2.setState({
+          mounted: true
+        }));
       });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.state.mounted && this.props.match.params.chapterId != prevProps.chapter.id) {
+        this.props.fetchChapter(this.props.match.params.chapterId);
+      }
     }
   }, {
     key: "render",
@@ -951,7 +1003,9 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
           history = _this$props.history,
           chapter = _this$props.chapter,
           story = _this$props.story,
-          chapters = _this$props.chapters;
+          chapters = _this$props.chapters,
+          currentUserId = _this$props.currentUserId,
+          createChapter = _this$props.createChapter;
       if (!story || chapter.body === undefined) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_chapter_form__WEBPACK_IMPORTED_MODULE_2__.default, {
         action: action,
@@ -959,7 +1013,9 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
         chapter: chapter,
         chapters: chapters,
         history: history,
-        story: story
+        story: story,
+        currentUserId: currentUserId,
+        createChapter: createChapter
       });
     }
   }]);

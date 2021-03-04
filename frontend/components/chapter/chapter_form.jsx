@@ -21,6 +21,12 @@ class ChapterForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.chapter.id !== this.props.chapter.id) {
+            this.setState({chapter: this.props.chapter})
+        }
+    }
+
     onChange(editorState) {
         // const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
         // const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
@@ -88,7 +94,20 @@ class ChapterForm extends React.Component {
     }
 
     handleDropdown(e) {
-        e.target.classList.toggle('show')
+        e.currentTarget.classList.toggle('show')
+    }
+
+    addNewChapter() {
+        let newChapter = {
+            title: `Untitled Part ${this.props.chapters.length + 1}`,
+            body: '',
+            user_id: this.props.currentUserId,
+            story_id: this.props.story.id,
+            chapter_number: this.props.chapters.length + 1,
+            published: false
+        };
+        return this.props.createChapter(newChapter)
+            .then((res) => this.props.history.push(`/stories/${res.chapter.storyId}/${res.chapter.id}/edit`));
     }
 
     render() {
@@ -99,16 +118,17 @@ class ChapterForm extends React.Component {
                 <div className='chapter-form'>
                     <div>
                         <ul className='chapter-form-table' onClick={this.handleDropdown}>
-                            {this.props.chapter.chapterNumber}) {this.props.chapter.title}
+                            {this.state.chapter.chapterNumber}) {this.state.chapter.title}
                             <div>
-                                <li><Link to={`/mystories/${this.props.story.id}`}></Link></li>
+                                <li><Link to={`/mystories/${this.props.story.id}`}>{this.props.story.title}</Link></li>
                                 {this.props.chapters.map((chapter) => {
                                     return (
-                                        <li><Link key={chapter.id} to={`/stories/${chapter.storyId}/${chapter.id}/edit`}>
+                                        <li key={chapter.id}><Link to={`/stories/${chapter.storyId}/${chapter.id}/edit`}>
                                             {chapter.chapterNumber}: {chapter.title}
                                         </Link></li>
                                     )
                                 })}
+                                <li onClick={() => this.addNewChapter()}>Add New Chapter</li>
                             </div>
                         </ul>
                         <button className='chapter-form-publish' onClick={this.handleSubmit}>Publish</button>
