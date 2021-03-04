@@ -1,5 +1,5 @@
 const path = require('path');
-var SRC = path.resolve(__dirname, 'frontend/assets');
+var SRC = path.resolve(__dirname, './public');
 
 module.exports = {
   entry: './frontend/amppad.jsx',

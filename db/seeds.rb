@@ -140,3 +140,7 @@ c5 = Chapter.create!(
     body: "asdfjkl;",
     published: false
 )
+
+c6 = Chapter.create!(
+    title: ""
+)

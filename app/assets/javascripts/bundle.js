@@ -743,7 +743,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _assets_border_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/border.jpg */ "./frontend/assets/border.jpg");
+/* harmony import */ var _public_border_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../public/border.jpg */ "./public/border.jpg");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -850,7 +850,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
         }, "Return to Home Page")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-header"
         }, this.editChapter()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: _assets_border_jpg__WEBPACK_IMPORTED_MODULE_1__.default
+          src: _public_border_jpg__WEBPACK_IMPORTED_MODULE_1__.default
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
         }, this.props.chapter.body), this.lastChapter()); // ! eventually add table of contents
@@ -20394,10 +20394,10 @@ module.exports = warning;
 
 /***/ }),
 
-/***/ "./frontend/assets/border.jpg":
-/*!************************************!*
-  !*** ./frontend/assets/border.jpg ***!
-  \************************************/
+/***/ "./public/border.jpg":
+/*!***************************!*
+  !*** ./public/border.jpg ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
