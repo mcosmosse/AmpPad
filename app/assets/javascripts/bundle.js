@@ -549,8 +549,11 @@ var ChapterForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       if (prevProps.chapter.id !== this.props.chapter.id) {
+        var contentState = draft_js__WEBPACK_IMPORTED_MODULE_1__.ContentState.createFromText(this.props.chapter.body);
+        var editorState = draft_js__WEBPACK_IMPORTED_MODULE_1__.EditorState.createWithContent(contentState);
         this.setState({
-          chapter: this.props.chapter
+          chapter: this.props.chapter,
+          editorState: editorState
         });
       }
     }
@@ -936,7 +939,7 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
     chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__.orderChapters)(state, ownProps.match.params.storyId),
-    story: Object.values(state.entities.stories)[0],
+    story: state.entities.stories[ownProps.match.params.storyId],
     currentUserId: state.session.currentUserId,
     formType: 'Update Chapter'
   };
@@ -982,16 +985,18 @@ var EditChapterForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchStory(this.props.match.params.storyId).then(function () {
-        return _this2.props.fetchChapter(_this2.props.match.params.chapterId).then(_this2.setState({
-          mounted: true
-        }));
+        return _this2.props.fetchChapter(_this2.props.match.params.chapterId);
       });
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      if (this.state.mounted && this.props.match.params.chapterId != prevProps.chapter.id) {
-        this.props.fetchChapter(this.props.match.params.chapterId);
+      console.log(prevProps);
+
+      if (prevProps.chapter != undefined) {
+        if (this.props.match.params.chapterId != prevProps.chapter.id) {
+          this.props.fetchChapter(this.props.match.params.chapterId);
+        }
       }
     }
   }, {

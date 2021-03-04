@@ -8,7 +8,7 @@ import { orderChapters } from '../../reducers/selectors';
 const mSTP = (state, ownProps) => ({
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
     chapters: orderChapters(state, ownProps.match.params.storyId),
-    story: Object.values(state.entities.stories)[0],
+    story: state.entities.stories[ownProps.match.params.storyId],
     currentUserId: state.session.currentUserId,
     formType: 'Update Chapter'
 });
@@ -30,15 +30,16 @@ class EditChapterForm extends React.Component {
     
     componentDidMount() {
         this.props.fetchStory(this.props.match.params.storyId).then(
-            () => this.props.fetchChapter(this.props.match.params.chapterId).then(
-               this.setState({mounted: true})
-            )
+            () => this.props.fetchChapter(this.props.match.params.chapterId)
         );
     }
 
     componentDidUpdate(prevProps) { 
-        if (this.state.mounted && this.props.match.params.chapterId != prevProps.chapter.id) {
-            this.props.fetchChapter(this.props.match.params.chapterId)
+        console.log(prevProps);
+        if (prevProps.chapter != undefined) {
+            if (this.props.match.params.chapterId != prevProps.chapter.id) {
+                this.props.fetchChapter(this.props.match.params.chapterId);
+            }
         }
     }
 

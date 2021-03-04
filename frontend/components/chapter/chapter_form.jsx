@@ -23,7 +23,12 @@ class ChapterForm extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.chapter.id !== this.props.chapter.id) {
-            this.setState({chapter: this.props.chapter})
+            let contentState = ContentState.createFromText(this.props.chapter.body);
+            let editorState = EditorState.createWithContent(contentState);
+            this.setState({
+                chapter: this.props.chapter,
+                editorState: editorState
+            })
         }
     }
 
