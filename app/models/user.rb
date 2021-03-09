@@ -40,4 +40,8 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Story
 
+    has_many :comments,
+        foreign_key: :commenter_id,
+        class_name: :Comment
+
 end
