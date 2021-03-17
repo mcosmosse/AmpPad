@@ -8,7 +8,7 @@ const chaptersReducer = (state = {}, action) => {
         case RECEIVE_STORY:
             return action.payload.chapters != undefined ? action.payload.chapters : {} ;
         case RECEIVE_CHAPTER:
-            newState[action.chapter.id] = action.chapter;
+            newState[action.payload.chapter.id] = action.payload.chapter;
             // return { [action.chapter.id]: action.chapter };
             return newState;
             // i don't remember why i didn't return a new slice of state to remove the unnecessary chapters for the chapter form

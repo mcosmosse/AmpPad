@@ -6,9 +6,9 @@ export const REMOVE_CHAPTER = "REMOVE_CHAPTER";
 
 // regular actions
 
-export const receiveChapter = (chapter) => ({
+export const receiveChapter = (payload) => ({
     type: RECEIVE_CHAPTER,
-    chapter
+    payload
 });
 
 export const receiveChapters = (chapters) => ({

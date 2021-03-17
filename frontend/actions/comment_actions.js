@@ -1,4 +1,4 @@
-import * as Util from '../utils/comments_util';
+import * as Util from '../utils/comment_util';
 
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";

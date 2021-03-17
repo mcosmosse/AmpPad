@@ -8,7 +8,7 @@ import StoryShowContainer from "./story/story_show_container";
 import ChapterShowContainer from "./chapter/chapter_show_container";
 import EditStoryForm from "./story/edit_story_form_container";
 import CreateStoryFormContainer from "./story/create_story_form_container";
-import EditChapterFormContainer from "./chapter/edit_chapter_container";
+import EditChapterFormContainer from "./chapter/chapter_form_container";
 import MyStoryIndexContainer from "./story/my_story_index_container";
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";

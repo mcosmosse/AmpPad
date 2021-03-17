@@ -47,6 +47,25 @@ class ChapterShow extends React.Component {
         e.currentTarget.classList.toggle('show-table')
     }
 
+    handleBody() {
+        return e => {
+            this.setState({ body: e.currentTarget.value })
+        }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let comment = {
+            body: this.state.body,
+            commenter_id: this.props.currentUserId,
+            chapter_id: this.props.chapter.id,
+        }
+        this.props.createComment(comment).then(
+            res => this.props.fetchChapter(res.comment.chapterId)
+        );
+        this.setState({body: ''});
+    }
+
     render() {
         if (this.props.chapter === undefined) {
             return (
@@ -56,7 +75,7 @@ class ChapterShow extends React.Component {
             return (
                 <div className='chapter-show-div'>
                     <ul className='chapter-show-table' onClick={this.handleDropdown}>
-                        {this.props.story.title}    
+                        {this.props.story.title} <img className='dropdown-arrow' src={dropdown} />
                         <div>
                             <li><Link to={`/stories/${this.props.story.id}`}>{this.props.story.title}</Link></li>
                             {this.props.chapters.map((chapter) => {
@@ -78,9 +97,23 @@ class ChapterShow extends React.Component {
                     <img src={border} />
                     <pre className='chapter-show-text'>{this.props.chapter.body}</pre>
                     {this.lastChapter()}
+                    <form className='chapter-comment-form' onSubmit={this.handleSubmit.bind(this)}>
+                        <textarea onChange={this.handleBody()}
+                            placeholder="Leave a comment"
+                        />
+                        <input className='comment-form-post' type='submit' value='Post'/>
+                    </form>
+                    <div className='chapter-comments'>
+                        {this.props.comments.map((comment) => {
+                            return (
+                                <div className='chapter-comment' key={comment.id}>
+                                    {comment.commenter}: {comment.body}
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             );
-            // ! eventually add table of contents
         }
     }
 }

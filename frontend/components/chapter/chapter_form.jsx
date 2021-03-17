@@ -123,7 +123,7 @@ class ChapterForm extends React.Component {
                 <div className='chapter-form'>
                     <div>
                         <ul className='chapter-form-table' onClick={this.handleDropdown}>
-                            {this.state.chapter.chapterNumber}) {this.state.chapter.title}
+                            {this.state.chapter.chapterNumber}) {this.state.chapter.title} <img className='dropdown-arrow' src={dropdown} />
                             <div>
                                 <li><Link to={`/mystories/${this.props.story.id}`}>{this.props.story.title}</Link></li>
                                 {this.props.chapters.map((chapter) => {

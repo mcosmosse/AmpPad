@@ -10,14 +10,18 @@ class Chapter < ApplicationRecord
         foreign_key: :chapter_id,
         class_name: :Comment
 
-    def comments_by_parent
-        comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
-
-        self.comments.includes(:commenter).each do |comment|
-            comments_by_parent[comment.parent_comment_id] << comment
-        end
+    has_many :commenters,
+        through: :comments,
+        source: :commenter
     
-        comments_by_parent
-    end
+    # def comments_by_parent
+    #     comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
+
+    #     self.comments.includes(:commenter).each do |comment|
+    #         comments_by_parent[comment.parent_comment_id] << comment
+    #     end
+    
+    #     comments_by_parent
+    # end
 
 end

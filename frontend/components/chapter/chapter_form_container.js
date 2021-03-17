@@ -35,7 +35,6 @@ class EditChapterForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) { 
-        console.log(prevProps);
         if (prevProps.chapter != undefined) {
             if (this.props.match.params.chapterId != prevProps.chapter.id) {
                 this.props.fetchChapter(this.props.match.params.chapterId);
