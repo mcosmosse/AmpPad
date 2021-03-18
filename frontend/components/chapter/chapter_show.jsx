@@ -66,6 +66,26 @@ class ChapterShow extends React.Component {
         this.setState({body: ''});
     }
 
+    handleDelete(commentId) {
+        this.props.deleteComment(commentId).then(
+            res => this.props.fetchChapter(res.comment.chapterId)
+        );
+    }
+
+    deleteComment(comment) {
+        if (comment.commenterId === this.props.authorId || comment.authorId === this.props.story.userId) {
+            return (
+                <div onClick={() => this.handleDelete(comment.id)} >
+                    <img className='delete-button' src={trash} />
+                </div>
+            );
+        } else {
+            return <div>
+                not your comment
+            </div>;
+        }
+    }
+
     render() {
         if (this.props.chapter === undefined) {
             return (
@@ -107,7 +127,7 @@ class ChapterShow extends React.Component {
                         {this.props.comments.map((comment) => {
                             return (
                                 <div className='chapter-comment' key={comment.id}>
-                                    {comment.commenter}: {comment.body}
+                                    {comment.commenter}: {comment.body} {this.deleteComment(comment)}
                                 </div>
                             )
                         })}

@@ -65,3 +65,13 @@
     height: 15px;
     display: inline-block;
 }
+
+.delete-button {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}
