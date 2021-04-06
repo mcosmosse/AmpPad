@@ -65,15 +65,15 @@ s5 = Story.create!(
     complete: false
 )
 
-co1 = Collection.create!(
-    title: 'good books',
-    user_id: u4.id
-)
+# co1 = Collection.create!(
+#     title: 'good books',
+#     user_id: u4.id
+# )
 
-co2 = Collection.create!(
-    title: 'my books in progress',
-    user_id: u4.id
-)
+# co2 = Collection.create!(
+#     title: 'my books in progress',
+#     user_id: u4.id
+# )
 
 c1 = Chapter.create!(
     title: 'Part I',
