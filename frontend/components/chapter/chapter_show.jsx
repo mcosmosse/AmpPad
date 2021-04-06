@@ -64,6 +64,7 @@ class ChapterShow extends React.Component {
             res => this.props.fetchChapter(res.comment.chapterId)
         );
         this.setState({body: ''});
+        e.target.reset();
     }
 
     handleDelete(commentId) {

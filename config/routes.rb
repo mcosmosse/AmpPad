@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :stories, only: [:create, :show, :update, :destroy, :index]
     resources :chapters, only: [:create, :show, :update, :destroy]
     resources :comments, only: [:create, :show, :update, :destroy]
+    resources :collections, only: [:create, :show, :update, :destroy]
+    resources :story_collections, only: [:create, :destroy]
   end
 
   root "static_pages#root"

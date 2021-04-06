@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_172449) do
+ActiveRecord::Schema.define(version: 2021_03_19_171709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 2021_03_05_172449) do
     t.datetime "updated_at", null: false
     t.index ["story_id"], name: "index_chapters_on_story_id"
     t.index ["user_id"], name: "index_chapters_on_user_id"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -46,6 +52,14 @@ ActiveRecord::Schema.define(version: 2021_03_05_172449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "story_collections", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.integer "story_id", null: false
+    t.index ["collection_id", "story_id"], name: "index_story_collections_on_collection_id_and_story_id", unique: true
+    t.index ["collection_id"], name: "index_story_collections_on_collection_id"
+    t.index ["story_id"], name: "index_story_collections_on_story_id"
   end
 
   create_table "users", force: :cascade do |t|

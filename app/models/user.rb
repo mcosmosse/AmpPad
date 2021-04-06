@@ -44,4 +44,8 @@ class User < ApplicationRecord
         foreign_key: :commenter_id,
         class_name: :Comment
 
+    has_many :collections,
+        foreign_key: :user_id,
+        class_name: :Collection
+
 end

@@ -1080,6 +1080,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       this.setState({
         body: ''
       });
+      e.target.reset();
     }
   }, {
     key: "handleDelete",

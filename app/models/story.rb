@@ -10,4 +10,12 @@ class Story < ApplicationRecord
         foreign_key: :story_id,
         class_name: :Chapter
 
+    has_many :story_collections,
+        foreign_key: :story_id,
+        class_name: :StoryCollection
+
+    has_many :collections,
+        through: :story_collections,
+        source: :collection
+
 end
