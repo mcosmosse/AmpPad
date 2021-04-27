@@ -8,6 +8,9 @@
 
 User.delete_all
 Story.delete_all
+Chapter.delete_all
+Collection.delete_all
+StoryCollection.delete_all
 
 u1 = User.create!(
     username: 'albertcamus',
@@ -65,15 +68,35 @@ s5 = Story.create!(
     complete: false
 )
 
-# co1 = Collection.create!(
-#     title: 'good books',
-#     user_id: u4.id
-# )
+co1 = Collection.create!(
+    title: 'good books',
+    user_id: u4.id
+)
 
-# co2 = Collection.create!(
-#     title: 'my books in progress',
-#     user_id: u4.id
-# )
+co2 = Collection.create!(
+    title: 'my books in progress',
+    user_id: u4.id
+)
+
+sc1 = StoryCollection.create!(
+    collection_id: co1.id,
+    story_id: s1.id
+)
+
+sc2 = StoryCollection.create!(
+    collection_id: co1.id,
+    story_id: s2.id
+)
+
+sc3 = StoryCollection.create!(
+    collection_id: co1.id,
+    story_id: s3.id
+)
+
+sc4 = StoryCollection.create!(
+    collection_id: co2.id,
+    story_id: s5.id
+)
 
 c1 = Chapter.create!(
     title: 'Part I',

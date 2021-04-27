@@ -42,13 +42,13 @@ export const deleteComment = id => dispatch => (
 );
 
 export const createComment = comment => dispatch => (
-    Util.createComment(comment).then(newChapter => (
-        dispatch(receiveComment(newChapter))
+    Util.createComment(comment).then(newComment => (
+        dispatch(receiveComment(newComment))
     ))
 );
 
 export const updateComment = comment => dispatch => (
-    Util.updateComment(comment).then(newChapter => (
-        dispatch(receiveComment(newChapter))
+    Util.updateComment(comment).then(newComment => (
+        dispatch(receiveComment(newComment))
     ))
 );

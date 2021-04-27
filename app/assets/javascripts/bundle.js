@@ -163,6 +163,90 @@ var updateChapter = function updateChapter(chapter) {
 
 /***/ }),
 
+/***/ "./frontend/actions/collection_actions.js":
+/*!************************************************!*
+  !*** ./frontend/actions/collection_actions.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_COLLECTION": () => /* binding */ RECEIVE_COLLECTION,
+/* harmony export */   "RECEIVE_COLLECTIONS": () => /* binding */ RECEIVE_COLLECTIONS,
+/* harmony export */   "REMOVE_COLLECTION": () => /* binding */ REMOVE_COLLECTION,
+/* harmony export */   "receiveCollection": () => /* binding */ receiveCollection,
+/* harmony export */   "receiveCollections": () => /* binding */ receiveCollections,
+/* harmony export */   "removeCollection": () => /* binding */ removeCollection,
+/* harmony export */   "fetchCollection": () => /* binding */ fetchCollection,
+/* harmony export */   "fetchCollections": () => /* binding */ fetchCollections,
+/* harmony export */   "deleteCollection": () => /* binding */ deleteCollection,
+/* harmony export */   "createCollection": () => /* binding */ createCollection,
+/* harmony export */   "updateCollection": () => /* binding */ updateCollection
+/* harmony export */ });
+/* harmony import */ var _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/collection_util */ "./frontend/utils/collection_util.js");
+
+var RECEIVE_COLLECTION = "RECEIVE_COLLECTION";
+var RECEIVE_COLLECTIONS = "RECEIVE_COLLECTIONS";
+var REMOVE_COLLECTION = "REMOVE_COLLECTION"; // regular actions
+
+var receiveCollection = function receiveCollection(collection) {
+  return {
+    type: RECEIVE_COLLECTION,
+    collection: collection
+  };
+};
+var receiveCollections = function receiveCollections(collections) {
+  return {
+    type: RECEIVE_COLLECTIONS,
+    collections: collections
+  };
+};
+var removeCollection = function removeCollection(collection) {
+  return {
+    type: REMOVE_COLLECTION,
+    collection: collection
+  };
+}; // thunk action creators
+
+var fetchCollection = function fetchCollection(id) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.fetchCollection(id).then(function (collection) {
+      return dispatch(receiveCollection(collection));
+    });
+  };
+};
+var fetchCollections = function fetchCollections() {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.fetchCollections().then(function (collections) {
+      return dispatch(receiveCollections(collections));
+    });
+  };
+};
+var deleteCollection = function deleteCollection(id) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollection(id).then(function (collection) {
+      return dispatch(removeCollection(collection));
+    });
+  };
+};
+var createCollection = function createCollection(collection) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollection(collection).then(function (newCollection) {
+      return dispatch(receiveCollection(newCollection));
+    });
+  };
+};
+var updateCollection = function updateCollection(collection) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.updateCollection(collection).then(function (newCollection) {
+      return dispatch(receiveCollection(newCollection));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/comment_actions.js":
 /*!*********************************************!*
   !*** ./frontend/actions/comment_actions.js ***!
@@ -232,15 +316,15 @@ var deleteComment = function deleteComment(id) {
 };
 var createComment = function createComment(comment) {
   return function (dispatch) {
-    return _utils_comment_util__WEBPACK_IMPORTED_MODULE_0__.createComment(comment).then(function (newChapter) {
-      return dispatch(receiveComment(newChapter));
+    return _utils_comment_util__WEBPACK_IMPORTED_MODULE_0__.createComment(comment).then(function (newComment) {
+      return dispatch(receiveComment(newComment));
     });
   };
 };
 var updateComment = function updateComment(comment) {
   return function (dispatch) {
-    return _utils_comment_util__WEBPACK_IMPORTED_MODULE_0__.updateComment(comment).then(function (newChapter) {
-      return dispatch(receiveComment(newChapter));
+    return _utils_comment_util__WEBPACK_IMPORTED_MODULE_0__.updateComment(comment).then(function (newComment) {
+      return dispatch(receiveComment(newComment));
     });
   };
 };
@@ -2538,6 +2622,47 @@ var chaptersReducer = function chaptersReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/collections_reducer.js":
+/*!**************************************************!*
+  !*** ./frontend/reducers/collections_reducer.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _actions_collection_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/collection_actions */ "./frontend/actions/collection_actions.js");
+
+
+var collectionsReducer = function collectionsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_collection_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_COLLECTION:
+      newState[action.collection.id] = action.collection;
+      return newState;
+
+    case _actions_collection_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_COLLECTIONS:
+      return action.collections;
+
+    case _actions_collection_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_COLLECTION:
+      delete newState[action.collection.id];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (collectionsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/comments_reducer.js":
 /*!***********************************************!*
   !*** ./frontend/reducers/comments_reducer.js ***!
@@ -2595,21 +2720,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _stories_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stories_reducer */ "./frontend/reducers/stories_reducer.js");
 /* harmony import */ var _chapters_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chapters_reducer */ "./frontend/reducers/chapters_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _collections_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./collections_reducer */ "./frontend/reducers/collections_reducer.js");
 
 
 
 
 
-var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
+
+var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
   stories: _stories_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
   chapters: _chapters_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
-  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__.default
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__.default,
+  collections: _collections_reducer__WEBPACK_IMPORTED_MODULE_4__.default
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesReducer);
 
@@ -2870,6 +2998,78 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/utils/collection_util.js":
+/*!*******************************************!*
+  !*** ./frontend/utils/collection_util.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchCollection": () => /* binding */ fetchCollection,
+/* harmony export */   "fetchCollections": () => /* binding */ fetchCollections,
+/* harmony export */   "createCollection": () => /* binding */ createCollection,
+/* harmony export */   "deleteCollection": () => /* binding */ deleteCollection,
+/* harmony export */   "updateCollection": () => /* binding */ updateCollection,
+/* harmony export */   "createCollectionEntry": () => /* binding */ createCollectionEntry,
+/* harmony export */   "deleteCollectionEntry": () => /* binding */ deleteCollectionEntry
+/* harmony export */ });
+var fetchCollection = function fetchCollection(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/collections/".concat(id)
+  });
+};
+var fetchCollections = function fetchCollections() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/collections'
+  });
+};
+var createCollection = function createCollection(collection) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/collections',
+    data: {
+      collection: collection
+    }
+  });
+};
+var deleteCollection = function deleteCollection(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/collections/".concat(id)
+  });
+};
+var updateCollection = function updateCollection(collection) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/collections/".concat(collection.id),
+    data: {
+      collection: collection
+    }
+  });
+};
+var createCollectionEntry = function createCollectionEntry(storyId, collectionId) {
+  return $.ajax({
+    method: 'POST',
+    url: "api/story_collections/",
+    data: {
+      storyId: storyId,
+      collectionId: collectionId
+    }
+  });
+};
+var deleteCollectionEntry = function deleteCollectionEntry(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/story_collections/".concat(id)
+  });
+};
 
 /***/ }),
 

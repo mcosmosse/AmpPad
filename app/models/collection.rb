@@ -1,5 +1,6 @@
 class Collection < ApplicationRecord
-    validates :title, :user_id, presence: true, uniqueness: true
+    validates :title, :user_id, presence: true
+    validates :title, uniqueness: { scope: [:user_id] }
 
     has_many :story_collections,
         foreign_key: :collection_id,
