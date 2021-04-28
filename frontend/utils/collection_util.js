@@ -35,13 +35,12 @@ export const updateCollection = collection => (
     })
 )
 
-export const createCollectionEntry = (storyId, collectionId) => (
+export const createCollectionEntry = (collectionEntry) => (
     $.ajax({
         method: 'POST',
         url: `api/story_collections/`,
         data: {
-            storyId,
-            collectionId
+            collectionEntry
         }
     })
 )

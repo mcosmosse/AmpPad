@@ -19,6 +19,11 @@ class Api::CollectionsController < ApplicationController
         end
     end
 
+    def index
+        @collections = Collection.all.includes(:user)
+        render :index
+    end
+
     def update
         @collection = Collection.find_by(id: params[:id])
         if @collection.update(collection_params)

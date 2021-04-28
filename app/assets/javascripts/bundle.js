@@ -178,6 +178,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveCollection": () => /* binding */ receiveCollection,
 /* harmony export */   "receiveCollections": () => /* binding */ receiveCollections,
 /* harmony export */   "removeCollection": () => /* binding */ removeCollection,
+/* harmony export */   "createCollectionEntry": () => /* binding */ createCollectionEntry,
+/* harmony export */   "deleteCollectionEntry": () => /* binding */ deleteCollectionEntry,
 /* harmony export */   "fetchCollection": () => /* binding */ fetchCollection,
 /* harmony export */   "fetchCollections": () => /* binding */ fetchCollections,
 /* harmony export */   "deleteCollection": () => /* binding */ deleteCollection,
@@ -209,6 +211,20 @@ var removeCollection = function removeCollection(collection) {
   };
 }; // thunk action creators
 
+var createCollectionEntry = function createCollectionEntry(storyId, collectionId) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollectionEntry(storyId, collectionId).then(function (collection) {
+      return dispatch(receiveCollection(collection));
+    });
+  };
+};
+var deleteCollectionEntry = function deleteCollectionEntry(id) {
+  return function (dispatch) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollectionEntry(id).then(function (collection) {
+      return dispatch(receiveCollection(collection));
+    });
+  };
+};
 var fetchCollection = function fetchCollection(id) {
   return function (dispatch) {
     return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.fetchCollection(id).then(function (collection) {
@@ -572,8 +588,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _story_create_story_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./story/create_story_form_container */ "./frontend/components/story/create_story_form_container.js");
 /* harmony import */ var _chapter_chapter_form_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./chapter/chapter_form_container */ "./frontend/components/chapter/chapter_form_container.js");
 /* harmony import */ var _story_my_story_index_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./story/my_story_index_container */ "./frontend/components/story/my_story_index_container.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _utils_routes_util__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/routes_util */ "./frontend/utils/routes_util.jsx");
+/* harmony import */ var _collection_collection_index_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./collection/collection_index_container */ "./frontend/components/collection/collection_index_container.js");
+/* harmony import */ var _collection_collection_show_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./collection/collection_show_container */ "./frontend/components/collection/collection_show_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _utils_routes_util__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../utils/routes_util */ "./frontend/utils/routes_util.jsx");
+
+
 
 
 
@@ -592,42 +612,50 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "navbar-filler"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.ProtectedRoute, {
     exact: true,
     path: "/stories/new",
     component: _story_create_story_form_container__WEBPACK_IMPORTED_MODULE_9__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+    exact: true,
+    path: "/user/:userId/collections",
+    component: _collection_collection_index_container__WEBPACK_IMPORTED_MODULE_12__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+    exact: true,
+    path: "/collections/:collectionId",
+    component: _collection_collection_show_container__WEBPACK_IMPORTED_MODULE_13__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
     exact: true,
     path: "/mystories",
     component: _story_my_story_index_container__WEBPACK_IMPORTED_MODULE_11__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
     exact: true,
     path: "/stories/:storyId/:chapterId",
     component: _chapter_chapter_show_container__WEBPACK_IMPORTED_MODULE_7__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
     exact: true,
     path: "/stories/:storyId",
     component: _story_story_show_container__WEBPACK_IMPORTED_MODULE_6__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
     exact: true,
     path: "/stories/:storyId/:chapterId/edit",
     component: _chapter_chapter_form_container__WEBPACK_IMPORTED_MODULE_10__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.ProtectedRoute, {
     path: "/mystories/:storyId",
     component: _story_edit_story_form_container__WEBPACK_IMPORTED_MODULE_8__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.AuthRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.AuthRoute, {
     exact: true,
     path: "/login",
     component: _session_login_container__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.AuthRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.AuthRoute, {
     exact: true,
     path: "/signup",
     component: _session_signup_container__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.ProtectedRoute, {
     exact: true,
     path: "/home",
     component: _home_home_container__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_12__.AuthRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.AuthRoute, {
     path: "/",
     component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
   })));
@@ -1309,6 +1337,277 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_chapter_show__WEBPACK_IMPORTED_MODULE_1__.default));
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_index.jsx":
+/*!*************************************************************!*
+  !*** ./frontend/components/collection/collection_index.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _collection_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collection_index_item */ "./frontend/components/collection/collection_index_item.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var CollectionIndex = /*#__PURE__*/function (_React$Component) {
+  _inherits(CollectionIndex, _React$Component);
+
+  var _super = _createSuper(CollectionIndex);
+
+  function CollectionIndex() {
+    _classCallCheck(this, CollectionIndex);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(CollectionIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchCollections();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var collections = this.props.collections;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "collection-index"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "collection-index-title"
+      }, "My Collections"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/collections/new"
+      }, "+ New Collection"), collections.map(function (collection) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_collection_index_item__WEBPACK_IMPORTED_MODULE_1__.default, {
+          collection: collection,
+          key: collection.id
+        });
+      }));
+    }
+  }]);
+
+  return CollectionIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_index_container.js":
+/*!**********************************************************************!*
+  !*** ./frontend/components/collection/collection_index_container.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _collection_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collection_index */ "./frontend/components/collection/collection_index.jsx");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_collection_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/collection_actions */ "./frontend/actions/collection_actions.js");
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    collections: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__.myCollections)(state, state.session.currentUserId)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchCollections: function fetchCollections() {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_3__.fetchCollections)());
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_collection_index__WEBPACK_IMPORTED_MODULE_1__.default));
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_index_item.jsx":
+/*!******************************************************************!*
+  !*** ./frontend/components/collection/collection_index_item.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+
+var CollectionIndexItem = function CollectionIndexItem(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "my-collection-index-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: "my-collection-index-item-title",
+    to: "/collections/".concat(props.collection.id)
+  }, "".concat(props.collection.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.collection.count, " Stories"));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionIndexItem);
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_show.jsx":
+/*!************************************************************!*
+  !*** ./frontend/components/collection/collection_show.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var CollectionShow = /*#__PURE__*/function (_React$Component) {
+  _inherits(CollectionShow, _React$Component);
+
+  var _super = _createSuper(CollectionShow);
+
+  function CollectionShow(props) {
+    _classCallCheck(this, CollectionShow);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(CollectionShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchCollection(this.props.match.params.collectionId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.props.collection.stories === undefined) {
+        return null;
+      } else {
+        var collection = this.props.collection;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "collection-title"
+        }, collection.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "collection-count"
+        }, collection.count), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "collection-stories"
+        }, Object.values(collection.stories).map(function (story) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "collection-story",
+            key: story.id
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            to: "/story/".concat(story.id)
+          }, story.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, story.description));
+        })));
+      }
+    }
+  }]);
+
+  return CollectionShow;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionShow);
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_show_container.js":
+/*!*********************************************************************!*
+  !*** ./frontend/components/collection/collection_show_container.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _collection_show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collection_show */ "./frontend/components/collection/collection_show.jsx");
+/* harmony import */ var _actions_collection_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/collection_actions */ "./frontend/actions/collection_actions.js");
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    collection: state.entities.collections[ownProps.match.params.collectionId]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchCollection: function fetchCollection(id) {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_2__.fetchCollection)(id));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_collection_show__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -2803,7 +3102,8 @@ var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "orderChapters": () => /* binding */ orderChapters,
-/* harmony export */   "myStories": () => /* binding */ myStories
+/* harmony export */   "myStories": () => /* binding */ myStories,
+/* harmony export */   "myCollections": () => /* binding */ myCollections
 /* harmony export */ });
 var orderChapters = function orderChapters(state, storyId) {
   return Object.values(state.entities.chapters).filter(function (chapter) {
@@ -2815,6 +3115,11 @@ var orderChapters = function orderChapters(state, storyId) {
 var myStories = function myStories(state, currentUserId) {
   return Object.values(state.entities.stories).filter(function (story) {
     return parseInt(currentUserId) === story.userId;
+  });
+};
+var myCollections = function myCollections(state, currentUserId) {
+  return Object.values(state.entities.collections).filter(function (collection) {
+    return parseInt(currentUserId) === collection.userId;
   });
 };
 
@@ -3054,13 +3359,12 @@ var updateCollection = function updateCollection(collection) {
     }
   });
 };
-var createCollectionEntry = function createCollectionEntry(storyId, collectionId) {
+var createCollectionEntry = function createCollectionEntry(collectionEntry) {
   return $.ajax({
     method: 'POST',
     url: "api/story_collections/",
     data: {
-      storyId: storyId,
-      collectionId: collectionId
+      collectionEntry: collectionEntry
     }
   });
 };

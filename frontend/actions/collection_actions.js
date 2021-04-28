@@ -23,6 +23,18 @@ export const removeCollection = (collection) => ({
 
 // thunk action creators
 
+export const createCollectionEntry = (storyId, collectionId) => dispatch => (
+    Util.createCollectionEntry(storyId, collectionId).then(collection => (
+        dispatch(receiveCollection(collection))
+    ))
+);
+
+export const deleteCollectionEntry = (id) => dispatch => (
+    Util.deleteCollectionEntry(id).then(collection =>(
+        dispatch(receiveCollection(collection))
+    ))
+);
+
 export const fetchCollection = id => dispatch => (
     Util.fetchCollection(id).then(collection => (
         dispatch(receiveCollection(collection))
