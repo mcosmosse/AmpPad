@@ -1340,6 +1340,160 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/collection/collection_form.jsx":
+/*!************************************************************!*
+  !*** ./frontend/components/collection/collection_form.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var CollectionForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(CollectionForm, _React$Component);
+
+  var _super = _createSuper(CollectionForm);
+
+  function CollectionForm(props) {
+    var _this;
+
+    _classCallCheck(this, CollectionForm);
+
+    _this = _super.call(this, props);
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.state = {
+      currentUserId: _this.props.currentUserId,
+      title: ''
+    };
+    return _this;
+  }
+
+  _createClass(CollectionForm, [{
+    key: "handleBody",
+    value: function handleBody() {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState({
+          title: e.currentTarget.value
+        });
+      };
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+      var collection = {
+        userId: this.state.currentUserId,
+        title: this.state.title
+      };
+      this.props.createCollection(collection);
+    }
+  }, {
+    key: "onClose",
+    value: function onClose(e) {
+      e.preventDefault();
+      this.props.onClose && this.props.onClose(e);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      if (!this.props.show) {
+        return null;
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "collection-form-modal"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+          onSubmit: function onSubmit(e) {
+            return _this3.onSubmit(e);
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Create a Collection"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Give your collection a name. It helps to be specific."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+          type: "text",
+          onChange: this.handleBody(),
+          placeholder: "e.g. Favorite Fantasy Stories"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          type: "submit"
+        }, "Create Collection"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          onClick: function onClick(e) {
+            _this3.onClose(e);
+          }
+        }, "Close"));
+      }
+    }
+  }]);
+
+  return CollectionForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionForm);
+
+/***/ }),
+
+/***/ "./frontend/components/collection/collection_form_container.js":
+/*!*********************************************************************!*
+  !*** ./frontend/components/collection/collection_form_container.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_collection_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/collection_actions */ "./frontend/actions/collection_actions.js");
+/* harmony import */ var _collection_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collection_form */ "./frontend/components/collection/collection_form.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    currentUserId: state.currentUserId
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    createCollection: function createCollection(collection) {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_1__.createCollection)(collection));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_collection_form__WEBPACK_IMPORTED_MODULE_2__.default));
+
+/***/ }),
+
 /***/ "./frontend/components/collection/collection_index.jsx":
 /*!*************************************************************!*
   !*** ./frontend/components/collection/collection_index.jsx ***!
@@ -1353,7 +1507,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _collection_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collection_index_item */ "./frontend/components/collection/collection_index_item.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _collection_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collection_form_container */ "./frontend/components/collection/collection_form_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1380,15 +1534,24 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var CollectionIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(CollectionIndex, _React$Component);
 
   var _super = _createSuper(CollectionIndex);
 
-  function CollectionIndex() {
+  function CollectionIndex(props) {
+    var _this;
+
     _classCallCheck(this, CollectionIndex);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      show: false
+    };
+    _this.showModal = _this.showModal.bind(_assertThisInitialized(_this));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CollectionIndex, [{
@@ -1397,16 +1560,39 @@ var CollectionIndex = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCollections();
     }
   }, {
+    key: "showModal",
+    value: function showModal() {
+      // e.preventDefault();
+      this.setState({
+        show: !this.state.show
+      });
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal(e) {
+      // e.preventDefault();
+      this.setState({
+        show: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var collections = this.props.collections;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "collection-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.showModal(e);
+        }
+      }, " Create a New Collection "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_collection_form_container__WEBPACK_IMPORTED_MODULE_2__.default, {
+        onClose: this.closeModal,
+        show: this.state.show
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "collection-index-title"
-      }, "My Collections"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/collections/new"
-      }, "+ New Collection"), collections.map(function (collection) {
+      }, "My Collections"), collections.map(function (collection) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_collection_index_item__WEBPACK_IMPORTED_MODULE_1__.default, {
           collection: collection,
           key: collection.id
@@ -1482,7 +1668,7 @@ var CollectionIndexItem = function CollectionIndexItem(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: "my-collection-index-item-title",
     to: "/collections/".concat(props.collection.id)
-  }, "".concat(props.collection.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.collection.count, " Stories"));
+  }, "".concat(props.collection.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.collection.count === 0 ? 'No' : props.collection.count, " Stories"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionIndexItem);
@@ -1546,22 +1732,23 @@ var CollectionShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.props.collection.stories === undefined) {
-        return null;
+      if (this.props.collection === undefined || this.props.collection.stories === undefined) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "There are no stories here. Go add a few!");
       } else {
         var collection = this.props.collection;
+        var stories = Object.values(collection.stories);
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "collection-title"
         }, collection.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "collection-count"
         }, collection.count), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "collection-stories"
-        }, Object.values(collection.stories).map(function (story) {
+        }, stories.map(function (story) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             className: "collection-story",
             key: story.id
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-            to: "/story/".concat(story.id)
+            to: "/stories/".concat(story.id)
           }, story.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, story.description));
         })));
       }

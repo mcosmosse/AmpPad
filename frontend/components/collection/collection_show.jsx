@@ -11,10 +11,13 @@ class CollectionShow extends React.Component {
     }
 
     render() {
-        if (this.props.collection.stories === undefined) {
-            return null;
+        if (this.props.collection === undefined || this.props.collection.stories === undefined) {
+            return (
+                <div>There are no stories here. Go add a few!</div>
+            );
         } else {
             const { collection } = this.props;
+            const stories = Object.values(collection.stories);
             return (
                 <div>
                     <div className='collection-title'>
@@ -24,9 +27,9 @@ class CollectionShow extends React.Component {
                         {collection.count}
                     </div>
                     <div className='collection-stories'>
-                        {Object.values(collection.stories).map((story) => (
+                        {stories.map((story) => (
                             <div className='collection-story' key={story.id}>
-                                <Link to={`/story/${story.id}`}>{story.title}</Link>
+                                <Link to={`/stories/${story.id}`}>{story.title}</Link>
                                 <p>{story.description}</p>
                             </div>
                         ))}
@@ -35,7 +38,6 @@ class CollectionShow extends React.Component {
             )
         }
     }
-
 }
 
 export default CollectionShow

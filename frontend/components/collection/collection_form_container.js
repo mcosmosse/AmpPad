@@ -3,7 +3,7 @@ import { createCollection } from '../../actions/collection_actions';
 import CollectionForm from './collection_form';
 
 const mSTP = state => ({
-    
+    currentUserId: state.currentUserId
 });
 
 const mDTP = dispatch => ({
