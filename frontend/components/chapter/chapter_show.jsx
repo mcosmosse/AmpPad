@@ -3,10 +3,17 @@ import { Link } from 'react-router-dom';
 // import border from '../../../public/border.jpg';
 
 class ChapterShow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+        };
+    }
 
     componentDidMount() {
         this.props.fetchStory(this.props.match.params.storyId)
             .then(() => this.props.fetchChapter(this.props.match.params.chapterId));
+        this.props.fetchCollections();
     }
 
     componentDidUpdate(prevProps) {
@@ -41,6 +48,50 @@ class ChapterShow extends React.Component {
         } else {
             return null;
         }
+    }
+
+    handleButtonClick() {
+        this.setState({
+            open: !this.state.open
+        });
+    };
+
+    addToCollection() {
+        const { collections, story } = this.props;
+        return (
+            <div className='add-to-collection' onClick={() => this.handleButtonClick()}>
+                <button type="button">
+                    +
+                </button>
+                {this.state.open &&
+                    <div className='collection-list'>
+                        <ul>
+                            {collections.map((collection) => {
+                                const isCollected = collection.stories[this.props.story.id];
+                                if (isCollected) {
+                                    return (                                
+                                        <li onClick={() => this.props.createCollectionEntry({story_id: story.id, 
+                                                    collection_id: collection.id})} 
+                                            key={collection.id}>
+                                                {collection.title} 'true'
+                                        </li>
+                                    )
+                                } else {
+                                    return (
+                                        <li onClick={() => this.props.deleteCollectionEntry({story_id: this.props.story.id,
+                                                                                            collection_id: collection.id
+                                        })} 
+                                            key={collection.id}>
+                                                {collection.title} ✓
+                                        </li>
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </div>
+                }
+            </div>
+        )
     }
 
     handleDropdown(e) {
@@ -111,6 +162,7 @@ class ChapterShow extends React.Component {
                     </ul>
                     <div className='chapter-show-header'>
                         {this.editChapter()}
+                        {this.addToCollection()}
                     </div>
                     <h1>{this.props.chapter.title}</h1>
                     <div></div>

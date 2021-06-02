@@ -20,7 +20,7 @@ class Api::CollectionsController < ApplicationController
     end
 
     def index
-        @collections = Collection.all.includes(:user)
+        @collections = Collection.all.includes(:user, :stories)
         render :index
     end
 

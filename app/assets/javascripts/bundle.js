@@ -211,16 +211,16 @@ var removeCollection = function removeCollection(collection) {
   };
 }; // thunk action creators
 
-var createCollectionEntry = function createCollectionEntry(storyId, collectionId) {
+var createCollectionEntry = function createCollectionEntry(collectionEntry) {
   return function (dispatch) {
-    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollectionEntry(storyId, collectionId).then(function (collection) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollectionEntry(collectionEntry).then(function (collection) {
       return dispatch(receiveCollection(collection));
     });
   };
 };
-var deleteCollectionEntry = function deleteCollectionEntry(id) {
+var deleteCollectionEntry = function deleteCollectionEntry(collectionEntry) {
   return function (dispatch) {
-    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollectionEntry(id).then(function (collection) {
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollectionEntry(collectionEntry).then(function (collection) {
       return dispatch(receiveCollection(collection));
     });
   };
@@ -1113,20 +1113,27 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(ChapterShow);
 
-  function ChapterShow() {
+  function ChapterShow(props) {
+    var _this;
+
     _classCallCheck(this, ChapterShow);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      open: false
+    };
+    return _this;
   }
 
   _createClass(ChapterShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
       this.props.fetchStory(this.props.match.params.storyId).then(function () {
-        return _this.props.fetchChapter(_this.props.match.params.chapterId);
+        return _this2.props.fetchChapter(_this2.props.match.params.chapterId);
       });
+      this.props.fetchCollections();
     }
   }, {
     key: "componentDidUpdate",
@@ -1160,6 +1167,56 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "handleButtonClick",
+    value: function handleButtonClick() {
+      this.setState({
+        open: !this.state.open
+      });
+    }
+  }, {
+    key: "addToCollection",
+    value: function addToCollection() {
+      var _this3 = this;
+
+      var _this$props = this.props,
+          collections = _this$props.collections,
+          story = _this$props.story;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "add-to-collection",
+        onClick: function onClick() {
+          return _this3.handleButtonClick();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        type: "button"
+      }, "+"), this.state.open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "collection-list"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, collections.map(function (collection) {
+        var isCollected = collection.stories[_this3.props.story.id];
+
+        if (isCollected) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+            onClick: function onClick() {
+              return _this3.props.createCollectionEntry({
+                story_id: story.id,
+                collection_id: collection.id
+              });
+            },
+            key: collection.id
+          }, collection.title, " 'true'");
+        } else {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+            onClick: function onClick() {
+              return _this3.props.deleteCollectionEntry({
+                story_id: _this3.props.story.id,
+                collection_id: collection.id
+              });
+            },
+            key: collection.id
+          }, collection.title, " \u2713");
+        }
+      }))));
+    }
+  }, {
     key: "handleDropdown",
     value: function handleDropdown(e) {
       e.currentTarget.classList.toggle('show-table');
@@ -1167,10 +1224,10 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleBody",
     value: function handleBody() {
-      var _this2 = this;
+      var _this4 = this;
 
       return function (e) {
-        _this2.setState({
+        _this4.setState({
           body: e.currentTarget.value
         });
       };
@@ -1178,7 +1235,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this5 = this;
 
       e.preventDefault();
       var comment = {
@@ -1187,7 +1244,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
         chapter_id: this.props.chapter.id
       };
       this.props.createComment(comment).then(function (res) {
-        return _this3.props.fetchChapter(res.comment.chapterId);
+        return _this5.props.fetchChapter(res.comment.chapterId);
       });
       this.setState({
         body: ''
@@ -1197,21 +1254,21 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleDelete",
     value: function handleDelete(commentId) {
-      var _this4 = this;
+      var _this6 = this;
 
       this.props.deleteComment(commentId).then(function (res) {
-        return _this4.props.fetchChapter(res.comment.chapterId);
+        return _this6.props.fetchChapter(res.comment.chapterId);
       });
     }
   }, {
     key: "deleteComment",
     value: function deleteComment(comment) {
-      var _this5 = this;
+      var _this7 = this;
 
       if (comment.commenterId === this.props.authorId || comment.authorId === this.props.story.userId) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           onClick: function onClick() {
-            return _this5.handleDelete(comment.id);
+            return _this7.handleDelete(comment.id);
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "delete-button",
@@ -1224,7 +1281,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
+      var _this8 = this;
 
       if (this.props.chapter === undefined) {
         return null;
@@ -1249,7 +1306,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
           to: "/home"
         }, "Return to Home Page")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-header"
-        }, this.editChapter()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        }, this.editChapter(), this.addToCollection()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: border
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
@@ -1269,7 +1326,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             className: "chapter-comment",
             key: comment.id
-          }, comment.commenter, ": ", comment.body, " ", _this6.deleteComment(comment));
+          }, comment.commenter, ": ", comment.body, " ", _this8.deleteComment(comment));
         })));
       }
     }
@@ -1298,7 +1355,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
 /* harmony import */ var _actions_chapter_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/chapter_actions */ "./frontend/actions/chapter_actions.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_collection_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/collection_actions */ "./frontend/actions/collection_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
 
 
 
@@ -1309,10 +1368,11 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     chapter: state.entities.chapters[ownProps.match.params.chapterId],
-    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__.orderChapters)(state, ownProps.match.params.storyId),
+    chapters: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_6__.orderChapters)(state, ownProps.match.params.storyId),
     comments: Object.values(state.entities.comments).reverse(),
     authorId: state.session.currentUserId,
-    story: state.entities.stories[ownProps.match.params.storyId]
+    story: state.entities.stories[ownProps.match.params.storyId],
+    collections: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_6__.myCollections)(state, state.session.currentUserId)
   };
 };
 
@@ -1332,6 +1392,15 @@ var mDTP = function mDTP(dispatch) {
     },
     deleteComment: function deleteComment(id) {
       return dispatch((0,_actions_comment_actions__WEBPACK_IMPORTED_MODULE_4__.deleteComment)(id));
+    },
+    createCollectionEntry: function createCollectionEntry(entry) {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_5__.createCollectionEntry)(entry));
+    },
+    deleteCollectionEntry: function deleteCollectionEntry(entry) {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_5__.deleteCollectionEntry)(entry));
+    },
+    fetchCollections: function fetchCollections() {
+      return dispatch((0,_actions_collection_actions__WEBPACK_IMPORTED_MODULE_5__.fetchCollections)());
     }
   };
 };
@@ -3546,19 +3615,22 @@ var updateCollection = function updateCollection(collection) {
     }
   });
 };
-var createCollectionEntry = function createCollectionEntry(collectionEntry) {
+var createCollectionEntry = function createCollectionEntry(story_collection) {
   return $.ajax({
     method: 'POST',
     url: "api/story_collections/",
     data: {
-      collectionEntry: collectionEntry
+      story_collection: story_collection
     }
   });
 };
-var deleteCollectionEntry = function deleteCollectionEntry(id) {
+var deleteCollectionEntry = function deleteCollectionEntry(story_collection) {
   return $.ajax({
     method: 'DELETE',
-    url: "api/story_collections/".concat(id)
+    url: "api/story_collections/1",
+    data: {
+      story_collection: story_collection
+    }
   });
 };
 

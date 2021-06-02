@@ -4,7 +4,8 @@ class Collection < ApplicationRecord
 
     has_many :story_collections,
         foreign_key: :collection_id,
-        class_name: :StoryCollection
+        class_name: :StoryCollection,
+        dependent: :destroy
 
     has_many :stories,
         through: :story_collections,

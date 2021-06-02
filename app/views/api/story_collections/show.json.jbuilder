@@ -1,0 +1,1 @@
+json.collection @story_collection.collection, :id, :title, :user_id

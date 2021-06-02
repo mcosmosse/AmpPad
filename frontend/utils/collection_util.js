@@ -35,19 +35,22 @@ export const updateCollection = collection => (
     })
 )
 
-export const createCollectionEntry = (collectionEntry) => (
+export const createCollectionEntry = (story_collection) => (
     $.ajax({
         method: 'POST',
         url: `api/story_collections/`,
         data: {
-            collectionEntry
+            story_collection
         }
     })
 )
 
-export const deleteCollectionEntry = (id) => (
+export const deleteCollectionEntry = (story_collection) => (
     $.ajax({
         method: 'DELETE',
-        url: `api/story_collections/${id}`
+        url: `api/story_collections/1`,
+        data: {
+            story_collection
+        }
     })
 )
