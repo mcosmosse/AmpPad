@@ -67,8 +67,11 @@ class ChapterShow extends React.Component {
                     <div className='collection-list'>
                         <ul>
                             {collections.map((collection) => {
-                                const isCollected = collection.stories[this.props.story.id];
-                                if (isCollected) {
+                                console.log(Object.assign({}, collection.stories))
+                                let isCollected = collection.stories[this.props.story.id];
+                                console.log(collection);
+                                console.log(this.props.story.id);
+                                if (!isCollected) {
                                     return (                                
                                         <li onClick={() => this.props.createCollectionEntry({story_id: story.id, 
                                                     collection_id: collection.id})} 

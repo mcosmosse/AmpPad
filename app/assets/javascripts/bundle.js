@@ -1191,9 +1191,12 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       }, "+"), this.state.open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "collection-list"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, collections.map(function (collection) {
+        console.log(Object.assign({}, collection.stories));
         var isCollected = collection.stories[_this3.props.story.id];
+        console.log(collection);
+        console.log(_this3.props.story.id);
 
-        if (isCollected) {
+        if (!isCollected) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
             onClick: function onClick() {
               return _this3.props.createCollectionEntry({
@@ -3627,7 +3630,7 @@ var createCollectionEntry = function createCollectionEntry(story_collection) {
 var deleteCollectionEntry = function deleteCollectionEntry(story_collection) {
   return $.ajax({
     method: 'DELETE',
-    url: "api/story_collections/1",
+    url: "api/story_collections/",
     data: {
       story_collection: story_collection
     }

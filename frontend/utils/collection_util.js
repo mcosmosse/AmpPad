@@ -48,7 +48,7 @@ export const createCollectionEntry = (story_collection) => (
 export const deleteCollectionEntry = (story_collection) => (
     $.ajax({
         method: 'DELETE',
-        url: `api/story_collections/1`,
+        url: `api/story_collections/`,
         data: {
             story_collection
         }

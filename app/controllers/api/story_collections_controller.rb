@@ -11,10 +11,11 @@ class Api::StoryCollectionsController < ApplicationController
     end
 
     def destroy
+        debugger
         @story_collection = StoryCollection.find_by(collection_id: params[:collection_id], story_id: params[:story_id])
-
-        if @story_collection.destroy
-            @collection = Collection.find_by(id: params[:collection_id])
+        
+        if @story_collection
+            @story_collection.destroy
             render "api/story_collections/show"
         else
             render json: @story_collection.errors.full_messages, status: 422
