@@ -40,4 +40,4 @@ class CollectionShow extends React.Component {
     }
 }
 
-export default CollectionShow
+export default CollectionShow;

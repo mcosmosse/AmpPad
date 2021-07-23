@@ -3,7 +3,6 @@ class Api::StoryCollectionsController < ApplicationController
     def create
         @story_collection = StoryCollection.new(story_collections_params)
         if @story_collection.save
-            @collection = Collection.find_by(id: params[:collection_id])
             render "api/story_collections/show"
         else
             render json: @story_collection.errors.full_messages, status: 422
@@ -11,7 +10,6 @@ class Api::StoryCollectionsController < ApplicationController
     end
 
     def destroy
-        debugger
         @story_collection = StoryCollection.find_by(collection_id: params[:collection_id], story_id: params[:story_id])
         
         if @story_collection

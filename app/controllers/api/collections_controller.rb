@@ -11,7 +11,7 @@ class Api::CollectionsController < ApplicationController
     end
 
     def show
-        @collection = Collection.find_by(id: params[:id])
+        @collection = Collection.find_by(id: params[:id]).includes(:stories)
         if @collection
             render :show
         else

@@ -4,7 +4,8 @@ import { fetchStories } from '../../actions/story_actions';
 import { myStories } from '../../reducers/selectors';
 
 const mSTP = state => ({
-    stories: myStories(state, state.session.currentUserId)
+    stories: myStories(state, state.session.currentUserId),
+    currentUser: state.entities.users[state.session.currentUserId]
 });
 
 const mDTP = dispatch => ({

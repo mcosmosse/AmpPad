@@ -213,16 +213,12 @@ var removeCollection = function removeCollection(collection) {
 
 var createCollectionEntry = function createCollectionEntry(collectionEntry) {
   return function (dispatch) {
-    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollectionEntry(collectionEntry).then(function (collection) {
-      return dispatch(receiveCollection(collection));
-    });
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.createCollectionEntry(collectionEntry);
   };
 };
 var deleteCollectionEntry = function deleteCollectionEntry(collectionEntry) {
   return function (dispatch) {
-    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollectionEntry(collectionEntry).then(function (collection) {
-      return dispatch(receiveCollection(collection));
-    });
+    return _utils_collection_util__WEBPACK_IMPORTED_MODULE_0__.deleteCollectionEntry(collectionEntry);
   };
 };
 var fetchCollection = function fetchCollection(id) {
@@ -1085,6 +1081,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1191,27 +1199,29 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       }, "+"), this.state.open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "collection-list"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, collections.map(function (collection) {
-        console.log(Object.assign({}, collection.stories));
-        var isCollected = collection.stories[_this3.props.story.id];
-        console.log(collection);
-        console.log(_this3.props.story.id);
+        var collectionStories = Object.assign.apply(Object, [{}].concat(_toConsumableArray(collection.stories)));
+        var isCollected = collectionStories[story.id];
 
-        if (!isCollected) {
+        if (isCollected === undefined) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
             onClick: function onClick() {
               return _this3.props.createCollectionEntry({
                 story_id: story.id,
                 collection_id: collection.id
+              }).then(function () {
+                return _this3.props.fetchCollections();
               });
             },
             key: collection.id
-          }, collection.title, " 'true'");
+          }, collection.title, " 'is not in collection'");
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
             onClick: function onClick() {
               return _this3.props.deleteCollectionEntry({
-                story_id: _this3.props.story.id,
+                story_id: story.id,
                 collection_id: collection.id
+              }).then(function () {
+                return _this3.props.fetchCollections();
               });
             },
             key: collection.id
@@ -2631,19 +2641,30 @@ var MyStoryIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var stories = this.props.stories;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "my-story-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "my-story-index-title"
-      }, "My Stories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/stories/new"
-      }, "+New Story"), stories.map(function (story) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_my_story_index_item__WEBPACK_IMPORTED_MODULE_1__.default, {
-          story: story,
-          key: story.id
-        });
-      }));
+      var _this$props = this.props,
+          stories = _this$props.stories,
+          currentUser = _this$props.currentUser;
+
+      if (stories && stories.length === 0) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "my-story-index"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "my-story-index-title"
+        }, "My Stories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hi, ", currentUser.username, "! You haven't written any stories yet."));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "my-story-index"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "my-story-index-title"
+        }, "My Stories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+          to: "/stories/new"
+        }, "+New Story"), stories.map(function (story) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_my_story_index_item__WEBPACK_IMPORTED_MODULE_1__.default, {
+            story: story,
+            key: story.id
+          });
+        }));
+      }
     }
   }]);
 
@@ -2676,7 +2697,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    stories: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__.myStories)(state, state.session.currentUserId)
+    stories: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__.myStories)(state, state.session.currentUserId),
+    currentUser: state.entities.users[state.session.currentUserId]
   };
 };
 
@@ -3630,10 +3652,8 @@ var createCollectionEntry = function createCollectionEntry(story_collection) {
 var deleteCollectionEntry = function deleteCollectionEntry(story_collection) {
   return $.ajax({
     method: 'DELETE',
-    url: "api/story_collections/",
-    data: {
-      story_collection: story_collection
-    }
+    url: "api/story_collections/1",
+    data: story_collection
   });
 };
 

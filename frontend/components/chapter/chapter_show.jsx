@@ -67,23 +67,22 @@ class ChapterShow extends React.Component {
                     <div className='collection-list'>
                         <ul>
                             {collections.map((collection) => {
-                                console.log(Object.assign({}, collection.stories))
-                                let isCollected = collection.stories[this.props.story.id];
-                                console.log(collection);
-                                console.log(this.props.story.id);
-                                if (!isCollected) {
+                                let collectionStories = Object.assign({}, ...collection.stories);
+                                let isCollected = collectionStories[story.id];
+                                if (isCollected === undefined) {
                                     return (                                
                                         <li onClick={() => this.props.createCollectionEntry({story_id: story.id, 
-                                                    collection_id: collection.id})} 
+                                                                                            collection_id: collection.id})
+                                                    .then(() => this.props.fetchCollections())} 
                                             key={collection.id}>
-                                                {collection.title} 'true'
+                                                {collection.title} 'is not in collection'
                                         </li>
                                     )
                                 } else {
                                     return (
-                                        <li onClick={() => this.props.deleteCollectionEntry({story_id: this.props.story.id,
-                                                                                            collection_id: collection.id
-                                        })} 
+                                        <li onClick={() => this.props.deleteCollectionEntry({story_id: story.id,
+                                                                                            collection_id: collection.id})
+                                                    .then(() => this.props.fetchCollections())} 
                                             key={collection.id}>
                                                 {collection.title} ✓
                                         </li>
