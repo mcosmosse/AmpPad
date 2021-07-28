@@ -11,7 +11,7 @@ class Api::ChaptersController < ApplicationController
     end
 
     def show
-        @chapter = Chapter.includes(:commenters).find_by(id: params[:id])
+        @chapter = Chapter.includes(:commenters, :votes).find_by(id: params[:id])
         if @chapter
             render :show
         else

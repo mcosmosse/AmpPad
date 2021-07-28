@@ -1,5 +1,5 @@
 json.story do
-    json.extract! @story, :id, :title, :user_id, :description, :complete
+    json.extract! @story, :id, :title, :user_id, :description, :complete, :votes
 end
 
 json.chapters do

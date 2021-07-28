@@ -18,4 +18,8 @@ class Story < ApplicationRecord
         through: :story_collections,
         source: :collection
 
+    has_many :votes,
+        through: :chapters,
+        source: :votes
+
 end

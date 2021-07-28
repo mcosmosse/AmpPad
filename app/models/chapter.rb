@@ -13,6 +13,11 @@ class Chapter < ApplicationRecord
     has_many :commenters,
         through: :comments,
         source: :commenter
+
+    has_many :votes,
+        foreign_key: :chapter_id,
+        class_name: :Vote,
+        dependent: :destroy
     
     # def comments_by_parent
     #     comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
