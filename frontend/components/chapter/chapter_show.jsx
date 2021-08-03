@@ -96,6 +96,35 @@ class ChapterShow extends React.Component {
         )
     }
 
+    vote() {
+        if (this.props.chapter.votes === undefined) {
+            return null;
+        } else {
+            const { chapter } = this.props;
+            let currentUserId = this.props.authorId;
+            let votes = Object.assign({}, ...chapter.votes)
+            let isVoted = votes.user_id === currentUserId;
+            if (!isVoted) {
+                return (
+                    <div>
+                        <div onClick={() => this.props.createVote({user_id: currentUserId, chapter_id: this.props.chapter.id})
+                                            .then(() => this.props.fetchChapter(this.props.chapter.id))
+                        }>★ Vote!</div>
+                    </div>
+                );
+            } else {
+                return (
+                    <div>
+                        <div onClick={() => this.props.deleteVote({user_id: currentUserId, chapter_id: this.props.chapter.id})
+                                            .then(() => this.props.fetchChapter(this.props.chapter.id))
+                        }>★ Voted</div>
+                    </div>
+                );
+            }
+        }
+        
+    }
+
     handleDropdown(e) {
         e.currentTarget.classList.toggle('show-table')
     }
@@ -164,6 +193,7 @@ class ChapterShow extends React.Component {
                     </ul>
                     <div className='chapter-show-header'>
                         {this.editChapter()}
+                        {this.vote()}
                         {this.addToCollection()}
                     </div>
                     <h1>{this.props.chapter.title}</h1>

@@ -7,6 +7,7 @@ const StoryIndexItem = (props) => {
             <Link className='story-index-item-title' to={`/stories/${props.story.id}`}>{`${props.story.title}`}</Link>
             <br></br>
             <Link className='story-index-item-author' to={`/users/${props.story.userId}`}>by {`${props.story.author}`}</Link>
+            <div className='story-index-item-votes'>{props.story.votes.length} ★</div>
             <br></br>
             <p>{props.story.description}</p>
         </div>
