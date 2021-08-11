@@ -70,9 +70,23 @@
 // }
 
 .show div {
+    position: absolute;
+    top: 30px;
+    left: 0px;
     display: inline-block;
     background-color: white;
     z-index: 3;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    
+    li:hover {
+        background-color: rgba(0, 0, 0, 0.14);
+        cursor: pointer;
+    }
 }
 
 .nav-dropdown-profile-content {

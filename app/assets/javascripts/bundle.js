@@ -1181,10 +1181,13 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
     key: "lastChapter",
     value: function lastChapter() {
       if (parseInt(this.props.chapter.chapterNumber) >= this.props.chapters.length) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "End of Story");
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "chapter-end"
+        }, "End of Story");
       } else {
         var nextChapter = this.props.chapters[this.props.chapter.chapterNumber];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: "chapter-end",
           to: "/stories/".concat(this.props.chapter.storyId, "/").concat(nextChapter.id)
         }, "Next Chapter");
       }
@@ -1196,7 +1199,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           className: "chapter-show-edit",
           to: "/stories/".concat(this.props.match.params.storyId, "/").concat(this.props.match.params.chapterId, "/edit")
-        }, "Edit");
+        }, "\u270E Edit");
       } else {
         return null;
       }
@@ -1217,7 +1220,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
           collections = _this$props.collections,
           story = _this$props.story;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "add-to-collection",
+        className: "chapter-add-to-collection",
         onClick: function onClick() {
           return _this3.handleButtonClick();
         }
@@ -1240,7 +1243,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
               });
             },
             key: collection.id
-          }, collection.title, " 'is not in collection'");
+          }, collection.title);
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
             onClick: function onClick() {
@@ -1252,7 +1255,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
               });
             },
             key: collection.id
-          }, collection.title, " \u2713");
+          }, collection.title, " \u2705");
         }
       }))));
     }
@@ -1270,7 +1273,8 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
         var isVoted = votes.user_id === currentUserId;
 
         if (!isVoted) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "chapter-vote",
             onClick: function onClick() {
               return _this4.props.createVote({
                 user_id: currentUserId,
@@ -1279,9 +1283,10 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
                 return _this4.props.fetchChapter(_this4.props.chapter.id);
               });
             }
-          }, "\u2605 Vote!"));
+          }, "\u2605 Vote!");
         } else {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "chapter-vote",
             onClick: function onClick() {
               return _this4.props.deleteVote({
                 user_id: currentUserId,
@@ -1290,7 +1295,7 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
                 return _this4.props.fetchChapter(_this4.props.chapter.id);
               });
             }
-          }, "\u2605 Voted"));
+          }, "\u2605 Voted");
         }
       }
     }
@@ -1366,13 +1371,15 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "chapter-show-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "chapter-show-header"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
           className: "chapter-show-table",
           onClick: this.handleDropdown
         }, this.props.story.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "dropdown-arrow",
           src: dropdown
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        }), this.props.story.author, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           to: "/stories/".concat(this.props.story.id)
         }, this.props.story.title)), this.props.chapters.map(function (chapter) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
@@ -1383,8 +1390,8 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           to: "/home"
         }, "Return to Home Page")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "chapter-show-header"
-        }, this.editChapter(), this.vote(), this.addToCollection()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "chapter-show-header-features"
+        }, this.editChapter(), this.addToCollection(), this.vote())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.chapter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: border
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("pre", {
           className: "chapter-show-text"
@@ -1404,7 +1411,9 @@ var ChapterShow = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             className: "chapter-comment",
             key: comment.id
-          }, comment.commenter, ": ", comment.body, " ", _this9.deleteComment(comment));
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            className: "chapter-commenter"
+          }, comment.commenter, ":"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), comment.body), _this9.deleteComment(comment));
         })));
       }
     }
@@ -3061,12 +3070,14 @@ var StoryIndexItem = function StoryIndexItem(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: "story-index-item-title",
     to: "/stories/".concat(props.story.id)
-  }, "".concat(props.story.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }, "".concat(props.story.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "story-index-item-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: "story-index-item-author",
     to: "/users/".concat(props.story.userId)
   }, "by ", "".concat(props.story.author)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "story-index-item-votes"
-  }, props.story.votes.length, " \u2605"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.story.description));
+  }, props.story.votes.length, " \u2605")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.story.description));
 }; // ! fix author link
 
 
