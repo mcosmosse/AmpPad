@@ -7,7 +7,7 @@ class CollectionShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchCollection(this.props.match.params.collectionId)
+        this.props.fetchCollection(this.props.match.params.collectionId);
     }
 
     render() {
@@ -18,8 +18,9 @@ class CollectionShow extends React.Component {
         } else {
             const { collection } = this.props;
             const stories = Object.values(collection.stories);
+            console.log(stories);
             return (
-                <div>
+                <div className='collection-show'>
                     <div className='collection-title'>
                         {collection.title}
                     </div>

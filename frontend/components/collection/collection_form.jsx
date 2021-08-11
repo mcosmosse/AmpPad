@@ -43,12 +43,12 @@ class CollectionForm extends React.Component {
                         <button type='submit'>Create Collection</button>
                         <br></br>
                     </form>
-                    <button
+                    {/* <button
                         onClick={e => {
                             this.onClose(e);
                         }}
                     >Close
-                    </button>
+                    </button> */}
                 </div>
             )
         }

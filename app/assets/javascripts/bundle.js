@@ -663,9 +663,6 @@ var App = function App() {
     exact: true,
     path: "/stories/:storyId/:chapterId/edit",
     component: _chapter_chapter_form_container__WEBPACK_IMPORTED_MODULE_10__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.ProtectedRoute, {
-    path: "/mystories/:storyId",
-    component: _story_edit_story_form_container__WEBPACK_IMPORTED_MODULE_8__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_routes_util__WEBPACK_IMPORTED_MODULE_14__.AuthRoute, {
     exact: true,
     path: "/login",
@@ -1606,11 +1603,7 @@ var CollectionForm = /*#__PURE__*/function (_React$Component) {
           placeholder: "e.g. Favorite Fantasy Stories"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           type: "submit"
-        }, "Create Collection"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: function onClick(e) {
-            _this3.onClose(e);
-          }
-        }, "Close"));
+        }, "Create Collection"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)));
       }
     }
   }]);
@@ -1828,11 +1821,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var CollectionIndexItem = function CollectionIndexItem(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "my-collection-index-item"
+    className: "collection-index-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    className: "my-collection-index-item-title",
+    className: "collection-index-item-title",
     to: "/collections/".concat(props.collection.id)
-  }, "".concat(props.collection.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.collection.count === 0 ? 'No' : props.collection.count, " Stories"));
+  }, "".concat(props.collection.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.collection.count === 0 ? 'No' : props.collection.count, " ", props.collection.count === 1 ? 'Story' : 'Stories'));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollectionIndexItem);
@@ -1901,7 +1894,10 @@ var CollectionShow = /*#__PURE__*/function (_React$Component) {
       } else {
         var collection = this.props.collection;
         var stories = Object.values(collection.stories);
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        console.log(stories);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "collection-show"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "collection-title"
         }, collection.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "collection-count"
